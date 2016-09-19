@@ -53,7 +53,7 @@ F 1 "LVDS_FIN1108" V 6650 5150 79  0000 C CNN
 F 2 "" H 6200 4750 60  0000 C CNN
 F 3 "" H 6200 4750 60  0000 C CNN
 	1    6650 5150
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L AD7418 U8
@@ -64,7 +64,7 @@ F 1 "AD7418" H 11950 3450 50  0000 L CNN
 F 2 "" H 11850 3150 50  0000 C CIN
 F 3 "" H 11850 3150 50  0000 C CNN
 	1    11850 3150
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L SN65LVDT14 U2
@@ -75,7 +75,7 @@ F 1 "SN65LVDT14" H 6650 1000 60  0000 C CNN
 F 2 "" H 6650 1600 60  0000 C CNN
 F 3 "" H 6650 1600 60  0000 C CNN
 	1    6650 1600
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L LM1117-3.3 U5
@@ -86,7 +86,7 @@ F 1 "LM1117-3.3" H 10050 8550 50  0000 C CNN
 F 2 "" H 10050 8300 50  0000 C CNN
 F 3 "" H 10050 8300 50  0000 C CNN
 	1    10050 8300
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L LM1117-3.3 U6
@@ -97,7 +97,7 @@ F 1 "LM1117-3.3" H 10050 9500 50  0000 C CNN
 F 2 "" H 10050 9250 50  0000 C CNN
 F 3 "" H 10050 9250 50  0000 C CNN
 	1    10050 9250
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C9
@@ -108,7 +108,7 @@ F 1 "0.1u" H 10675 8350 50  0000 L CNN
 F 2 "" H 10688 8300 50  0000 C CNN
 F 3 "" H 10650 8450 50  0000 C CNN
 	1    10650 8450
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C8
@@ -119,7 +119,7 @@ F 1 "0.1u" H 10525 9300 50  0000 L CNN
 F 2 "" H 10538 9250 50  0000 C CNN
 F 3 "" H 10500 9400 50  0000 C CNN
 	1    10500 9400
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C6
@@ -130,7 +130,7 @@ F 1 "0.1u" H 9475 9300 50  0000 L CNN
 F 2 "" H 9488 9250 50  0000 C CNN
 F 3 "" H 9450 9400 50  0000 C CNN
 	1    9450 9400
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C7
@@ -141,7 +141,7 @@ F 1 "0.1u" H 9525 8350 50  0000 L CNN
 F 2 "" H 9538 8300 50  0000 C CNN
 F 3 "" H 9500 8450 50  0000 C CNN
 	1    9500 8450
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L CP C11
@@ -152,7 +152,7 @@ F 1 "10u" H 11025 8350 50  0000 L CNN
 F 2 "" H 11038 8300 50  0000 C CNN
 F 3 "" H 11000 8450 50  0000 C CNN
 	1    11000 8450
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L CP C5
@@ -163,7 +163,7 @@ F 1 "10u" H 9075 8350 50  0000 L CNN
 F 2 "" H 9088 8300 50  0000 C CNN
 F 3 "" H 9050 8450 50  0000 C CNN
 	1    9050 8450
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L CP C4
@@ -174,7 +174,7 @@ F 1 "10u" H 9025 9300 50  0000 L CNN
 F 2 "" H 9038 9250 50  0000 C CNN
 F 3 "" H 9000 9400 50  0000 C CNN
 	1    9000 9400
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L CP C10
@@ -185,7 +185,7 @@ F 1 "10u" H 10975 9300 50  0000 L CNN
 F 2 "" H 10988 9250 50  0000 C CNN
 F 3 "" H 10950 9400 50  0000 C CNN
 	1    10950 9400
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L CONN_02X04 P2
@@ -196,7 +196,7 @@ F 1 "CONN_02X04" H 1700 6000 50  0000 C CNN
 F 2 "" H 1700 5050 50  0000 C CNN
 F 3 "" H 1700 5050 50  0000 C CNN
 	1    1700 6250
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L CONN_01X04 P1
@@ -207,7 +207,7 @@ F 1 "CONN_01X04" V 1250 6250 50  0000 C CNN
 F 2 "" H 1150 6250 50  0000 C CNN
 F 3 "" H 1150 6250 50  0000 C CNN
 	1    1150 6250
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Label 700  6650 0    60   ~ 0
 DVDD
@@ -230,7 +230,7 @@ F 1 "0.1u" H 1225 5450 50  0000 L CNN
 F 2 "" H 1238 5400 50  0000 C CNN
 F 3 "" H 1200 5550 50  0000 C CNN
 	1    1200 5550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C3
@@ -241,7 +241,7 @@ F 1 "0.1u" H 1575 5450 50  0000 L CNN
 F 2 "" H 1588 5400 50  0000 C CNN
 F 3 "" H 1550 5550 50  0000 C CNN
 	1    1550 5550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C1
@@ -252,7 +252,7 @@ F 1 "0.1u" H 925 5450 50  0000 L CNN
 F 2 "" H 938 5400 50  0000 C CNN
 F 3 "" H 900 5550 50  0000 C CNN
 	1    900  5550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Label 1200 5400 0    60   ~ 0
 DGND
@@ -265,7 +265,7 @@ F 1 "MIMOSA" H 3250 1500 50  0000 L CNN
 F 2 "" H 3150 1200 50  0000 C CIN
 F 3 "" H 3150 1200 50  0000 C CNN
 	1    3150 1200
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	2150 1200 2000 1200
@@ -718,7 +718,7 @@ F 1 "CONN_02X07" V 4500 5500 50  0000 C CNN
 F 2 "" H 4500 4300 50  0000 C CNN
 F 3 "" H 4500 4300 50  0000 C CNN
 	1    4500 5500
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	3750 5200 4250 5200
@@ -755,7 +755,7 @@ F 1 "REF200" H 10350 1950 60  0000 C CNN
 F 2 "" H 10350 1700 60  0001 C CNN
 F 3 "" H 10350 1700 60  0001 C CNN
 	1    10350 1700
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L MAX4165 U9
@@ -766,7 +766,7 @@ F 1 "MAX4165" H 12200 1450 50  0000 L CNN
 F 2 "" H 12200 1650 50  0000 C CNN
 F 3 "" H 12200 1650 50  0000 C CNN
 	1    12200 1650
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	9550 1300 9550 1650
@@ -827,17 +827,6 @@ Text Label 11100 1300 0    60   ~ 0
 temp
 Text Label 12900 3150 2    60   ~ 0
 tmp_out
-$Comp
-L NL17SZ125 U11
-U 1 1 57DCE28F
-P 12300 5950
-F 0 "U11" H 11850 6250 50  0000 L CNN
-F 1 "NL17SZ125" H 12400 6250 50  0000 L CNN
-F 2 "" H 12300 5950 50  0000 C CIN
-F 3 "" H 12300 5950 50  0000 C CNN
-	1    12300 5950
-	1    0    0    -1
-$EndComp
 Wire Wire Line
 	11250 3150 10750 3150
 Wire Wire Line
@@ -846,10 +835,6 @@ Wire Wire Line
 	11250 3450 10750 3450
 Wire Wire Line
 	12450 3350 12900 3350
-Wire Wire Line
-	12900 5950 13350 5950
-Wire Wire Line
-	12900 6150 13350 6150
 Text Label 10750 3150 0    60   ~ 0
 SDA
 Text Label 10750 3250 0    60   ~ 0
@@ -858,75 +843,6 @@ Text Label 10750 3450 0    60   ~ 0
 DGND
 Text Label 12900 3350 2    60   ~ 0
 DVDD
-$Comp
-L SN65LVDT14 U4
-U 1 1 57DD1E94
-P 9800 5300
-F 0 "U4" H 9800 5900 60  0000 C CNN
-F 1 "SN65LVDT14" H 9800 4700 60  0000 C CNN
-F 2 "" H 9800 5300 60  0000 C CNN
-F 3 "" H 9800 5300 60  0000 C CNN
-	1    9800 5300
-	1    0    0    -1
-$EndComp
-Wire Wire Line
-	9350 5750 9000 5750
-Wire Wire Line
-	9350 5650 9000 5650
-Wire Wire Line
-	9350 5150 9000 5150
-Wire Wire Line
-	9350 5050 9000 5050
-Wire Wire Line
-	9350 4950 9000 4950
-Wire Wire Line
-	9350 4850 9000 4850
-Wire Wire Line
-	10250 4950 10650 4950
-Wire Wire Line
-	10250 5150 10650 5150
-Wire Wire Line
-	10250 5350 10650 5350
-Wire Wire Line
-	10250 5550 10650 5550
-Wire Wire Line
-	10250 5650 10650 5650
-Wire Wire Line
-	10250 5750 10650 5750
-Text Label 10650 4950 2    60   ~ 0
-DGND
-Text Label 10650 5150 2    60   ~ 0
-DVDD
-Text Label 10650 5350 2    60   ~ 0
-DGND
-Text Label 10650 5550 2    60   ~ 0
-DVDD
-Text Label 10650 5750 2    60   ~ 0
-DGND
-Text Label 9000 4850 0    60   ~ 0
-SCL_p
-Text Label 9000 4950 0    60   ~ 0
-SCL_n
-Text Label 9000 5050 0    60   ~ 0
-SDAW_p
-Text Label 9000 5150 0    60   ~ 0
-SDAW_n
-Wire Wire Line
-	11700 6050 11700 6150
-Wire Wire Line
-	11700 6150 11350 6150
-Text Label 11350 6150 0    60   ~ 0
-DGND
-Text Label 13350 5950 2    60   ~ 0
-DVDD
-Text Label 13350 6150 2    60   ~ 0
-SDA
-Text Label 9000 5650 0    60   ~ 0
-SDAR_p
-Text Label 9000 5750 0    60   ~ 0
-SDAR_n
-Text Label 10650 5650 2    60   ~ 0
-SDA
 Wire Wire Line
 	8450 8300 9750 8300
 Connection ~ 9500 8300
@@ -973,39 +889,6 @@ Text Label 11550 8600 2    60   ~ 0
 AGND
 Text Label 11550 9550 2    60   ~ 0
 DGND
-Wire Wire Line
-	10250 4850 11700 4850
-$Comp
-L NL17SZ125 U10
-U 1 1 57DD7847
-P 12300 4850
-F 0 "U10" H 11850 5150 50  0000 L CNN
-F 1 "NL17SZ125" H 12400 5150 50  0000 L CNN
-F 2 "" H 12300 4850 50  0000 C CIN
-F 3 "" H 12300 4850 50  0000 C CNN
-	1    12300 4850
-	1    0    0    -1
-$EndComp
-Wire Wire Line
-	12900 4850 13350 4850
-Wire Wire Line
-	12900 5050 13350 5050
-Wire Wire Line
-	11700 4950 11700 5050
-Wire Wire Line
-	11700 5050 11350 5050
-Text Label 11350 5050 0    60   ~ 0
-DGND
-Text Label 13350 4850 2    60   ~ 0
-DVDD
-Text Label 13350 5050 2    60   ~ 0
-SCL
-Wire Wire Line
-	10250 5050 10950 5050
-Wire Wire Line
-	10950 5050 10950 5950
-Wire Wire Line
-	10950 5950 11700 5950
 $Comp
 L R R3
 U 1 1 57DD7D84
@@ -1015,7 +898,7 @@ F 1 "2k" V 11000 2800 50  0000 C CNN
 F 2 "" V 10930 2800 50  0000 C CNN
 F 3 "" H 11000 2800 50  0000 C CNN
 	1    11000 2800
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L R R4
@@ -1026,51 +909,7 @@ F 1 "2k" V 11200 2800 50  0000 C CNN
 F 2 "" V 11130 2800 50  0000 C CNN
 F 3 "" H 11200 2800 50  0000 C CNN
 	1    11200 2800
-	1    0    0    -1
-$EndComp
-$Comp
-L R R1
-U 1 1 57DD7E9C
-P 11150 4550
-F 0 "R1" V 11230 4550 50  0000 C CNN
-F 1 "1k" V 11150 4550 50  0000 C CNN
-F 2 "" V 11080 4550 50  0000 C CNN
-F 3 "" H 11150 4550 50  0000 C CNN
-	1    11150 4550
-	1    0    0    -1
-$EndComp
-$Comp
-L R R2
-U 1 1 57DD7F0F
-P 11150 5700
-F 0 "R2" V 11230 5700 50  0000 C CNN
-F 1 "1k" V 11150 5700 50  0000 C CNN
-F 2 "" V 11080 5700 50  0000 C CNN
-F 3 "" H 11150 5700 50  0000 C CNN
-	1    11150 5700
-	1    0    0    -1
-$EndComp
-$Comp
-L C C13
-U 1 1 57DD7F7E
-P 11150 6250
-F 0 "C13" H 11175 6350 50  0000 L CNN
-F 1 "0.1u" H 11175 6150 50  0000 L CNN
-F 2 "" H 11188 6100 50  0000 C CNN
-F 3 "" H 11150 6250 50  0000 C CNN
-	1    11150 6250
-	1    0    0    -1
-$EndComp
-$Comp
-L C C12
-U 1 1 57DD800C
-P 11150 5100
-F 0 "C12" H 11175 5200 50  0000 L CNN
-F 1 "0.1u" H 11175 5000 50  0000 L CNN
-F 2 "" H 11188 4950 50  0000 C CNN
-F 3 "" H 11150 5100 50  0000 C CNN
-	1    11150 5100
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	11000 2950 11000 3150
@@ -1083,28 +922,6 @@ Wire Wire Line
 Connection ~ 11000 2650
 Text Label 10650 2650 0    60   ~ 0
 DVDD
-Wire Wire Line
-	11150 4400 10850 4400
-Wire Wire Line
-	11150 5250 11500 5250
-Wire Wire Line
-	11150 4700 11150 4950
-Connection ~ 11150 4850
-Wire Wire Line
-	11150 5550 11500 5550
-Wire Wire Line
-	11150 5850 11150 6100
-Connection ~ 11150 5950
-Wire Wire Line
-	11150 6400 11600 6400
-Text Label 10850 4400 0    60   ~ 0
-DVDD
-Text Label 11500 5250 2    60   ~ 0
-DGND
-Text Label 11500 5550 2    60   ~ 0
-DVDD
-Text Label 11600 6400 2    60   ~ 0
-DGND
 $Comp
 L C C15
 U 1 1 57DDA375
@@ -1114,7 +931,7 @@ F 1 "0.1u" H 2175 8450 50  0000 L CNN
 F 2 "" H 2188 8400 50  0000 C CNN
 F 3 "" H 2150 8550 50  0000 C CNN
 	1    2150 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C17
@@ -1125,7 +942,7 @@ F 1 "0.1u" H 2525 8450 50  0000 L CNN
 F 2 "" H 2538 8400 50  0000 C CNN
 F 3 "" H 2500 8550 50  0000 C CNN
 	1    2500 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C19
@@ -1136,7 +953,7 @@ F 1 "0.1u" H 2775 8450 50  0000 L CNN
 F 2 "" H 2788 8400 50  0000 C CNN
 F 3 "" H 2750 8550 50  0000 C CNN
 	1    2750 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C20
@@ -1147,7 +964,7 @@ F 1 "0.1u" H 3025 8450 50  0000 L CNN
 F 2 "" H 3038 8400 50  0000 C CNN
 F 3 "" H 3000 8550 50  0000 C CNN
 	1    3000 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C22
@@ -1158,7 +975,7 @@ F 1 "0.1u" H 3275 8450 50  0000 L CNN
 F 2 "" H 3288 8400 50  0000 C CNN
 F 3 "" H 3250 8550 50  0000 C CNN
 	1    3250 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C24
@@ -1169,7 +986,7 @@ F 1 "0.1u" H 3525 8450 50  0000 L CNN
 F 2 "" H 3538 8400 50  0000 C CNN
 F 3 "" H 3500 8550 50  0000 C CNN
 	1    3500 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C26
@@ -1180,7 +997,7 @@ F 1 "0.1u" H 3775 8450 50  0000 L CNN
 F 2 "" H 3788 8400 50  0000 C CNN
 F 3 "" H 3750 8550 50  0000 C CNN
 	1    3750 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C27
@@ -1191,7 +1008,7 @@ F 1 "0.1u" H 4025 8450 50  0000 L CNN
 F 2 "" H 4038 8400 50  0000 C CNN
 F 3 "" H 4000 8550 50  0000 C CNN
 	1    4000 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C28
@@ -1202,7 +1019,7 @@ F 1 "0.1u" H 4275 8450 50  0000 L CNN
 F 2 "" H 4288 8400 50  0000 C CNN
 F 3 "" H 4250 8550 50  0000 C CNN
 	1    4250 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C29
@@ -1213,7 +1030,7 @@ F 1 "0.1u" H 4525 8450 50  0000 L CNN
 F 2 "" H 4538 8400 50  0000 C CNN
 F 3 "" H 4500 8550 50  0000 C CNN
 	1    4500 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C30
@@ -1224,7 +1041,7 @@ F 1 "0.1u" H 4775 8450 50  0000 L CNN
 F 2 "" H 4788 8400 50  0000 C CNN
 F 3 "" H 4750 8550 50  0000 C CNN
 	1    4750 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C31
@@ -1235,7 +1052,7 @@ F 1 "0.1u" H 5025 8450 50  0000 L CNN
 F 2 "" H 5038 8400 50  0000 C CNN
 F 3 "" H 5000 8550 50  0000 C CNN
 	1    5000 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C32
@@ -1246,7 +1063,7 @@ F 1 "0.1u" H 5275 8450 50  0000 L CNN
 F 2 "" H 5288 8400 50  0000 C CNN
 F 3 "" H 5250 8550 50  0000 C CNN
 	1    5250 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C33
@@ -1257,7 +1074,7 @@ F 1 "0.1u" H 5525 8450 50  0000 L CNN
 F 2 "" H 5538 8400 50  0000 C CNN
 F 3 "" H 5500 8550 50  0000 C CNN
 	1    5500 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C34
@@ -1268,7 +1085,7 @@ F 1 "0.1u" H 5825 8450 50  0000 L CNN
 F 2 "" H 5838 8400 50  0000 C CNN
 F 3 "" H 5800 8550 50  0000 C CNN
 	1    5800 8550
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C14
@@ -1279,7 +1096,7 @@ F 1 "0.1u" H 2125 9250 50  0000 L CNN
 F 2 "" H 2138 9200 50  0000 C CNN
 F 3 "" H 2100 9350 50  0000 C CNN
 	1    2100 9350
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C16
@@ -1290,7 +1107,7 @@ F 1 "0.1u" H 2425 9250 50  0000 L CNN
 F 2 "" H 2438 9200 50  0000 C CNN
 F 3 "" H 2400 9350 50  0000 C CNN
 	1    2400 9350
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C18
@@ -1301,7 +1118,7 @@ F 1 "0.1u" H 2725 9250 50  0000 L CNN
 F 2 "" H 2738 9200 50  0000 C CNN
 F 3 "" H 2700 9350 50  0000 C CNN
 	1    2700 9350
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C21
@@ -1312,7 +1129,7 @@ F 1 "0.1u" H 3025 9250 50  0000 L CNN
 F 2 "" H 3038 9200 50  0000 C CNN
 F 3 "" H 3000 9350 50  0000 C CNN
 	1    3000 9350
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C23
@@ -1323,7 +1140,7 @@ F 1 "0.1u" H 3275 9250 50  0000 L CNN
 F 2 "" H 3288 9200 50  0000 C CNN
 F 3 "" H 3250 9350 50  0000 C CNN
 	1    3250 9350
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 $Comp
 L C C25
@@ -1334,7 +1151,7 @@ F 1 "0.1u" H 3575 9250 50  0000 L CNN
 F 2 "" H 3588 9200 50  0000 C CNN
 F 3 "" H 3550 9350 50  0000 C CNN
 	1    3550 9350
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	1600 8400 5800 8400
@@ -1521,17 +1338,17 @@ mkd_p_out
 Text Label 16050 4550 2    60   ~ 0
 mkd_n_out
 Text Label 13950 4650 0    60   ~ 0
-SCL_p
+GND
 Text Label 16050 4650 2    60   ~ 0
-SCL_n
+GND
 Text Label 13950 4750 0    60   ~ 0
-SDAW_p
+SCL_p
 Text Label 16050 4750 2    60   ~ 0
-SDAW_n
+SCL_n
 Text Label 13950 4850 0    60   ~ 0
-SDAR_p
+SDA_p
 Text Label 16050 4850 2    60   ~ 0
-SDAR_n
+SDA_n
 Text Label 13950 4950 0    60   ~ 0
 GND
 Text Label 16050 4950 2    60   ~ 0
@@ -1553,7 +1370,7 @@ F 1 "100" V 5200 3750 50  0000 C CNN
 F 2 "" V 5130 3750 50  0000 C CNN
 F 3 "" H 5200 3750 50  0000 C CNN
 	1    5200 3750
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L R R6
@@ -1564,7 +1381,7 @@ F 1 "100" V 5200 4050 50  0000 C CNN
 F 2 "" V 5130 4050 50  0000 C CNN
 F 3 "" H 5200 4050 50  0000 C CNN
 	1    5200 4050
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L R R7
@@ -1575,7 +1392,7 @@ F 1 "100" V 5200 4350 50  0000 C CNN
 F 2 "" V 5130 4350 50  0000 C CNN
 F 3 "" H 5200 4350 50  0000 C CNN
 	1    5200 4350
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L R R8
@@ -1586,7 +1403,7 @@ F 1 "100" V 5200 4650 50  0000 C CNN
 F 2 "" V 5130 4650 50  0000 C CNN
 F 3 "" H 5200 4650 50  0000 C CNN
 	1    5200 4650
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L R R9
@@ -1597,7 +1414,7 @@ F 1 "100" V 5200 4950 50  0000 C CNN
 F 2 "" V 5130 4950 50  0000 C CNN
 F 3 "" H 5200 4950 50  0000 C CNN
 	1    5200 4950
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 $Comp
 L R R10
@@ -1608,7 +1425,7 @@ F 1 "100" V 5200 5250 50  0000 C CNN
 F 2 "" V 5130 5250 50  0000 C CNN
 F 3 "" H 5200 5250 50  0000 C CNN
 	1    5200 5250
-	0    1    1    0
+	0    1    1    0   
 $EndComp
 Wire Wire Line
 	5050 5250 5050 5350
@@ -1631,7 +1448,7 @@ F 1 "CONN_02X20" V 15050 4000 50  0000 C CNN
 F 2 "" H 15050 3050 50  0000 C CNN
 F 3 "" H 15050 3050 50  0000 C CNN
 	1    15050 4000
-	1    0    0    -1
+	1    0    0    -1  
 $EndComp
 Text Label 13950 4150 0    60   ~ 0
 GND
@@ -1641,4 +1458,169 @@ Text Label 16050 4150 2    60   ~ 0
 GND
 Wire Wire Line
 	16050 4150 15300 4150
+$Comp
+L PCA9615 U4
+U 1 1 57E090D5
+P 10750 5250
+F 0 "U4" H 10300 5550 50  0000 L CNN
+F 1 "PCA9615" H 10850 5550 50  0000 L CNN
+F 2 "" H 10750 5250 50  0000 C CIN
+F 3 "" H 10750 5250 50  0000 C CNN
+	1    10750 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10150 5550 9400 5550
+Wire Wire Line
+	10150 5650 9400 5650
+Wire Wire Line
+	10150 5450 9400 5450
+Wire Wire Line
+	10150 5350 9400 5350
+Wire Wire Line
+	10150 5250 9400 5250
+Text Label 9400 5250 0    60   ~ 0
+DVDD
+Text Label 9400 5350 0    60   ~ 0
+SDA
+Text Label 9400 5550 0    60   ~ 0
+SCL
+Text Label 9400 5450 0    60   ~ 0
+DVDD
+Text Label 9400 5650 0    60   ~ 0
+DGND
+Wire Wire Line
+	11350 5250 12100 5250
+Wire Wire Line
+	11350 5350 12100 5350
+Wire Wire Line
+	11350 5450 12100 5450
+Wire Wire Line
+	11350 5550 12100 5550
+Wire Wire Line
+	11350 5650 12100 5650
+Text Label 12100 5250 2    60   ~ 0
+DVDD
+Text Label 12100 5350 2    60   ~ 0
+SDA_n
+Text Label 12100 5450 2    60   ~ 0
+SDA_p
+Text Label 12100 5550 2    60   ~ 0
+SCL_p
+Text Label 12100 5650 2    60   ~ 0
+SCL_n
+$Comp
+L R R1
+U 1 1 57E0ABFE
+P 12850 5900
+F 0 "R1" V 12930 5900 50  0000 C CNN
+F 1 "600" V 12850 5900 50  0000 C CNN
+F 2 "" V 12780 5900 50  0000 C CNN
+F 3 "" H 12850 5900 50  0000 C CNN
+	1    12850 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 57E0AD33
+P 12850 6350
+F 0 "R2" V 12930 6350 50  0000 C CNN
+F 1 "120" V 12850 6350 50  0000 C CNN
+F 2 "" V 12780 6350 50  0000 C CNN
+F 3 "" H 12850 6350 50  0000 C CNN
+	1    12850 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R11
+U 1 1 57E0ADED
+P 12850 6800
+F 0 "R11" V 12930 6800 50  0000 C CNN
+F 1 "600" V 12850 6800 50  0000 C CNN
+F 2 "" V 12780 6800 50  0000 C CNN
+F 3 "" H 12850 6800 50  0000 C CNN
+	1    12850 6800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12850 6050 12850 6200
+Wire Wire Line
+	12850 6500 12850 6650
+Wire Wire Line
+	12850 6950 12850 7150
+Wire Wire Line
+	12850 7150 12400 7150
+Wire Wire Line
+	12850 5750 12400 5750
+Wire Wire Line
+	12400 6100 12850 6100
+Connection ~ 12850 6100
+Wire Wire Line
+	12850 6600 12400 6600
+Connection ~ 12850 6600
+$Comp
+L R R12
+U 1 1 57E0B919
+P 13900 5900
+F 0 "R12" V 13980 5900 50  0000 C CNN
+F 1 "600" V 13900 5900 50  0000 C CNN
+F 2 "" V 13830 5900 50  0000 C CNN
+F 3 "" H 13900 5900 50  0000 C CNN
+	1    13900 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R13
+U 1 1 57E0B91F
+P 13900 6350
+F 0 "R13" V 13980 6350 50  0000 C CNN
+F 1 "120" V 13900 6350 50  0000 C CNN
+F 2 "" V 13830 6350 50  0000 C CNN
+F 3 "" H 13900 6350 50  0000 C CNN
+	1    13900 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R14
+U 1 1 57E0B925
+P 13900 6800
+F 0 "R14" V 13980 6800 50  0000 C CNN
+F 1 "600" V 13900 6800 50  0000 C CNN
+F 2 "" V 13830 6800 50  0000 C CNN
+F 3 "" H 13900 6800 50  0000 C CNN
+	1    13900 6800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13900 6050 13900 6200
+Wire Wire Line
+	13900 6500 13900 6650
+Wire Wire Line
+	13900 6950 13900 7150
+Wire Wire Line
+	13900 7150 13450 7150
+Wire Wire Line
+	13900 5750 13450 5750
+Wire Wire Line
+	13450 6100 13900 6100
+Connection ~ 13900 6100
+Wire Wire Line
+	13900 6600 13450 6600
+Connection ~ 13900 6600
+Text Label 12400 5750 0    60   ~ 0
+DVDD
+Text Label 12400 6100 0    60   ~ 0
+SDA_p
+Text Label 12400 6600 0    60   ~ 0
+SDA_n
+Text Label 12400 7150 0    60   ~ 0
+DGND
+Text Label 13450 5750 0    60   ~ 0
+DVDD
+Text Label 13450 6100 0    60   ~ 0
+SCL_p
+Text Label 13450 6600 0    60   ~ 0
+SCL_n
+Text Label 13450 7150 0    60   ~ 0
+DGND
 $EndSCHEMATC
