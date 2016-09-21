@@ -210,17 +210,17 @@ F 3 "" H 1150 6250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 700  6650 0    60   ~ 0
-DVDD
+MVDD
 Text Label 1450 6650 0    60   ~ 0
-DGND
+GND
 Text Label 1700 1900 0    60   ~ 0
-DVDD
+MVDD
 Text Label 1750 3400 0    60   ~ 0
-DGND
+GND
 Text Label 1750 4600 0    60   ~ 0
-AVDD
+MVDD
 Text Label 1750 5200 0    60   ~ 0
-AGND
+GND
 $Comp
 L C C2
 U 1 1 57DB53E3
@@ -255,7 +255,7 @@ F 3 "" H 900 5550 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 1200 5400 0    60   ~ 0
-DGND
+GND
 $Comp
 L MIMOSA U1
 U 1 1 57DB138C
@@ -585,7 +585,7 @@ Connection ~ 6650 3250
 Connection ~ 6750 3250
 Connection ~ 6450 3250
 Text Label 6100 3250 0    60   ~ 0
-DVDD
+CVDD
 Wire Wire Line
 	7500 6350 7500 6550
 Connection ~ 7500 6450
@@ -596,11 +596,11 @@ Wire Wire Line
 Wire Wire Line
 	7500 6650 8000 6650
 Text Label 8000 6250 2    60   ~ 0
-DVDD
+CVDD
 Text Label 8000 6450 2    60   ~ 0
-DGND
+GND
 Text Label 8000 6650 2    60   ~ 0
-DVDD
+CVDD
 Wire Wire Line
 	6100 7050 6850 7050
 Connection ~ 6550 7050
@@ -608,7 +608,7 @@ Connection ~ 6650 7050
 Connection ~ 6750 7050
 Connection ~ 6450 7050
 Text Label 6100 7050 0    60   ~ 0
-DGND
+GND
 Wire Wire Line
 	3750 2700 4200 2700
 Wire Wire Line
@@ -672,23 +672,23 @@ RSTB
 Text Label 7500 1150 2    60   ~ 0
 TMS
 Text Label 7500 1250 2    60   ~ 0
-DGND
+GND
 Text Label 7500 1350 2    60   ~ 0
 TDI
 Text Label 7500 1450 2    60   ~ 0
-DVDD
+CVDD
 Text Label 7500 1550 2    60   ~ 0
 TCK
 Text Label 7500 1650 2    60   ~ 0
-DGND
+GND
 Text Label 7500 1750 2    60   ~ 0
 RSTB
 Text Label 7500 1850 2    60   ~ 0
-DVDD
+CVDD
 Text Label 7500 1950 2    60   ~ 0
 TDO
 Text Label 7500 2050 2    60   ~ 0
-DGND
+GND
 Text Label 5850 1150 0    60   ~ 0
 TMS_p
 Text Label 5850 1250 0    60   ~ 0
@@ -745,7 +745,7 @@ Wire Wire Line
 	4750 5950 5100 5950
 Connection ~ 4750 5800
 Text Label 5100 5950 2    60   ~ 0
-DGND
+GND
 $Comp
 L REF200 U7
 U 1 1 57DCA69E
@@ -801,15 +801,15 @@ Wire Wire Line
 	11300 1750 11300 2100
 Connection ~ 9550 2100
 Text Label 9250 1300 0    60   ~ 0
-AVDD
+CVDD
 Text Label 9250 2100 0    60   ~ 0
-AGND
+GND
 Text Label 12400 2050 2    60   ~ 0
-AGND
+GND
 Wire Wire Line
 	12100 1350 12400 1350
 Text Label 12400 1350 2    60   ~ 0
-AVDD
+CVDD
 Text Label 12900 1650 2    60   ~ 0
 tmp_out
 Wire Wire Line
@@ -840,9 +840,9 @@ SDA
 Text Label 10750 3250 0    60   ~ 0
 SCL
 Text Label 10750 3450 0    60   ~ 0
-DGND
+GND
 Text Label 12900 3350 2    60   ~ 0
-DVDD
+CVDD
 Wire Wire Line
 	8450 8300 9750 8300
 Connection ~ 9500 8300
@@ -874,21 +874,21 @@ Connection ~ 9000 9550
 Connection ~ 9050 8600
 Connection ~ 9050 8300
 Text Label 8450 8300 0    60   ~ 0
-VIN
+MIMOSA_VDD
 Text Label 8450 8600 0    60   ~ 0
 GND
 Text Label 8450 9250 0    60   ~ 0
-VIN
+CHIP_VDD
 Text Label 8450 9550 0    60   ~ 0
 GND
 Text Label 11550 8300 2    60   ~ 0
-AVDD
+MVDD
 Text Label 11550 9250 2    60   ~ 0
-DVDD
+CVDD
 Text Label 11550 8600 2    60   ~ 0
-AGND
+GND
 Text Label 11550 9550 2    60   ~ 0
-DGND
+GND
 $Comp
 L R R3
 U 1 1 57DD7D84
@@ -921,7 +921,7 @@ Wire Wire Line
 	10650 2650 11200 2650
 Connection ~ 11000 2650
 Text Label 10650 2650 0    60   ~ 0
-DVDD
+CVDD
 $Comp
 L C C15
 U 1 1 57DDA375
@@ -1202,17 +1202,17 @@ Connection ~ 2100 9500
 Connection ~ 2150 8700
 Connection ~ 2150 8400
 Text Label 1600 8400 2    60   ~ 0
-DVDD
+CVDD
 Text Label 1600 8700 2    60   ~ 0
-DGND
+GND
 Text Label 1650 9200 2    60   ~ 0
-AVDD
+MVDD
 Text Label 1650 9500 2    60   ~ 0
-AGND
+GND
 Wire Wire Line
-	13950 3050 14800 3050
+	13950 5050 14800 5050
 Wire Wire Line
-	15300 3050 16050 3050
+	15300 5050 16050 5050
 Wire Wire Line
 	14800 3150 13950 3150
 Wire Wire Line
@@ -1277,14 +1277,14 @@ Wire Wire Line
 	15300 4650 16050 4650
 Wire Wire Line
 	15300 4750 16050 4750
-Text Label 13950 3050 0    60   ~ 0
-VIN
-Text Label 16050 3050 2    60   ~ 0
-VIN
+Text Label 13950 5050 0    60   ~ 0
+MIMOSA_VDD
+Text Label 16050 5050 2    60   ~ 0
+MIMOSA_VDD
 Text Label 13950 3150 0    60   ~ 0
-VIN
+CHIP_VDD
 Text Label 16050 3150 2    60   ~ 0
-VIN
+CHIP_VDD
 Text Label 13950 3250 0    60   ~ 0
 GND
 Text Label 16050 3250 2    60   ~ 0
@@ -1442,12 +1442,12 @@ Wire Wire Line
 $Comp
 L CONN_02X20 P4
 U 1 1 57E078A0
-P 15050 4000
-F 0 "P4" H 15050 5050 50  0000 C CNN
-F 1 "CONN_02X20" V 15050 4000 50  0000 C CNN
-F 2 "" H 15050 3050 50  0000 C CNN
-F 3 "" H 15050 3050 50  0000 C CNN
-	1    15050 4000
+P 15050 4100
+F 0 "P4" H 15050 5150 50  0000 C CNN
+F 1 "CONN_02X20" V 15050 4100 50  0000 C CNN
+F 2 "" H 15050 3150 50  0000 C CNN
+F 3 "" H 15050 3150 50  0000 C CNN
+	1    15050 4100
 	1    0    0    -1  
 $EndComp
 Text Label 13950 4150 0    60   ~ 0
@@ -1480,15 +1480,15 @@ Wire Wire Line
 Wire Wire Line
 	10150 5250 9400 5250
 Text Label 9400 5250 0    60   ~ 0
-DVDD
+CVDD
 Text Label 9400 5350 0    60   ~ 0
 SDA
 Text Label 9400 5550 0    60   ~ 0
 SCL
 Text Label 9400 5450 0    60   ~ 0
-DVDD
+CVDD
 Text Label 9400 5650 0    60   ~ 0
-DGND
+GND
 Wire Wire Line
 	11350 5250 12100 5250
 Wire Wire Line
@@ -1500,7 +1500,7 @@ Wire Wire Line
 Wire Wire Line
 	11350 5650 12100 5650
 Text Label 12100 5250 2    60   ~ 0
-DVDD
+CVDD
 Text Label 12100 5350 2    60   ~ 0
 SDA_n
 Text Label 12100 5450 2    60   ~ 0
@@ -1614,7 +1614,7 @@ SDA_p
 Text Label 12400 6600 0    60   ~ 0
 SDA_n
 Text Label 12400 7150 0    60   ~ 0
-DGND
+GND
 Text Label 13450 5750 0    60   ~ 0
 DVDD
 Text Label 13450 6100 0    60   ~ 0
@@ -1622,5 +1622,43 @@ SCL_p
 Text Label 13450 6600 0    60   ~ 0
 SCL_n
 Text Label 13450 7150 0    60   ~ 0
-DGND
+GND
+$Comp
+L R R15
+U 1 1 57E30F7F
+P 10050 7800
+F 0 "R15" V 10130 7800 50  0000 C CNN
+F 1 "0" V 10050 7800 50  0000 C CNN
+F 2 "" V 9980 7800 50  0000 C CNN
+F 3 "" H 10050 7800 50  0000 C CNN
+	1    10050 7800
+	0    1    1    0   
+$EndComp
+$Comp
+L R R16
+U 1 1 57E3104E
+P 10050 8800
+F 0 "R16" V 10130 8800 50  0000 C CNN
+F 1 "0" V 10050 8800 50  0000 C CNN
+F 2 "" V 9980 8800 50  0000 C CNN
+F 3 "" H 10050 8800 50  0000 C CNN
+	1    10050 8800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9500 8300 9500 7800
+Wire Wire Line
+	9500 7800 9900 7800
+Wire Wire Line
+	10200 7800 10650 7800
+Wire Wire Line
+	10650 7800 10650 8300
+Wire Wire Line
+	9450 9250 9450 8800
+Wire Wire Line
+	9450 8800 9900 8800
+Wire Wire Line
+	10200 8800 10500 8800
+Wire Wire Line
+	10500 8800 10500 9250
 $EndSCHEMATC
