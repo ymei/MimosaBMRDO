@@ -628,17 +628,17 @@ F 3 "" H 9950 2750 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 Text Label 10600 1250 2    60   ~ 0
-data0_p_out
+data0_out_P
 Text Label 10600 1350 2    60   ~ 0
-data0_n_out
+data0_out_N
 Text Label 10600 1550 2    60   ~ 0
-data1_p_out
+data1_out_P
 Text Label 10600 1650 2    60   ~ 0
-data1_n_out
+data1_out_N
 Text Label 10600 1850 2    60   ~ 0
-start_p
+start_P
 Text Label 10600 1950 2    60   ~ 0
-start_n
+start_N
 $Comp
 L AD626 U8
 U 1 1 57E4BD5D
@@ -1124,65 +1124,65 @@ GND
 Text Label 15950 7250 2    60   ~ 0
 GND
 Text Label 14150 7350 0    60   ~ 0
-TMS_p
+SCL_P
 Text Label 15950 7350 2    60   ~ 0
-TMS_n
+SCL_N
 Text Label 14150 7450 0    60   ~ 0
-TDI_p
+SDA_P
 Text Label 15950 7450 2    60   ~ 0
-TDI_n
+SDA_N
 Text Label 14150 7550 0    60   ~ 0
-TCK_p
+TDO_P
 Text Label 15950 7550 2    60   ~ 0
-TCK_n
+TDO_N
 Text Label 14150 7650 0    60   ~ 0
-RSTB_p
+TDI_P
 Text Label 15950 7650 2    60   ~ 0
-RSTB_n
+TDI_N
 Text Label 14150 7750 0    60   ~ 0
-TDO_p
+TCK_P
 Text Label 15950 7750 2    60   ~ 0
-TDO_n
+TCK_N
 Text Label 14150 7850 0    60   ~ 0
 GND
 Text Label 15950 7850 2    60   ~ 0
 GND
 Text Label 14150 7950 0    60   ~ 0
-data0_p_out
+RSTB_P
 Text Label 15950 7950 2    60   ~ 0
-data0_n_out
+RSTB_N
 Text Label 14150 8050 0    60   ~ 0
-data1_p_out
+TMS_P
 Text Label 15950 8050 2    60   ~ 0
-data1_n_out
+TMS_N
 Text Label 14150 8250 0    60   ~ 0
-start_p_in
+data0_out_P
 Text Label 15950 8250 2    60   ~ 0
-start_n_in
+data0_out_N
 Text Label 14150 8350 0    60   ~ 0
-clkl_p_in
+data1_out_P
 Text Label 15950 8350 2    60   ~ 0
-clkl_n_in
+data1_out_N
 Text Label 14150 8450 0    60   ~ 0
-clkd_p_out
+start_in_P
 Text Label 15950 8450 2    60   ~ 0
-clkd_n_out
+start_in_N
 Text Label 14150 8550 0    60   ~ 0
-mkd_p_out
+clkl_in_P
 Text Label 15950 8550 2    60   ~ 0
-mkd_n_out
+clkl_in_N
 Text Label 14150 8650 0    60   ~ 0
 GND
 Text Label 15950 8650 2    60   ~ 0
 GND
 Text Label 14150 8750 0    60   ~ 0
-SCL_p
+clkd_out_P
 Text Label 15950 8750 2    60   ~ 0
-SCL_n
+clkd_out_N
 Text Label 14150 8850 0    60   ~ 0
-SDA_p
+mkd_out_P
 Text Label 15950 8850 2    60   ~ 0
-SDA_n
+mkd_out_N
 Text Label 14150 8950 0    60   ~ 0
 GND
 Text Label 15950 8950 2    60   ~ 0
@@ -1203,41 +1203,41 @@ F 3 "" H 15950 8150 50  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 Text Label 13000 1850 2    60   ~ 0
-start_p_in
+start_in_P
 Text Label 13000 1950 2    60   ~ 0
-start_n_in
+start_in_N
 Text Label 13000 2150 2    60   ~ 0
-clkl_p_in
+clkl_in_P
 Text Label 13000 2250 2    60   ~ 0
-clkl_n_in
+clkl_in_N
 Text Label 10600 2450 2    60   ~ 0
-clkd_p_out
+clkd_out_P
 Text Label 10600 2550 2    60   ~ 0
-clkd_n_out
+clkd_out_N
 Text Label 10600 2750 2    60   ~ 0
-mkd_p_out
+mkd_out_P
 Text Label 10600 2850 2    60   ~ 0
-mkd_n_out
+mkd_out_N
 Text Label 10600 2150 2    60   ~ 0
-clkl_p
+clkl_P
 Text Label 10600 2250 2    60   ~ 0
-clkl_n
+clkl_N
 Text Label 13000 1250 2    60   ~ 0
-data0_p
+data0_P
 Text Label 13000 1350 2    60   ~ 0
-data0_n
+data0_N
 Text Label 13000 1550 2    60   ~ 0
-data1_p
+data1_P
 Text Label 13000 1650 2    60   ~ 0
-data1_n
+data1_N
 Text Label 13000 2450 2    60   ~ 0
-clkd_p
+clkd_P
 Text Label 13000 2550 2    60   ~ 0
-clkd_n
+clkd_N
 Text Label 13000 2750 2    60   ~ 0
-mkd_p
+mkd_P
 Text Label 13000 2850 2    60   ~ 0
-mkd_n
+mkd_N
 Text Label 13000 3750 2    60   ~ 0
 V_3V3
 Text Label 13000 3950 2    60   ~ 0
@@ -1673,13 +1673,13 @@ GND
 Text Label 11850 6750 2    60   ~ 0
 V_3V3
 Text Label 11850 6850 2    60   ~ 0
-SDA_n
+SDA_N
 Text Label 11850 6950 2    60   ~ 0
-SDA_p
+SDA_P
 Text Label 11850 7050 2    60   ~ 0
-SCL_p
+SCL_P
 Text Label 11850 7150 2    60   ~ 0
-SCL_n
+SCL_N
 $Comp
 L R R46
 U 1 1 57E873EF
@@ -1751,13 +1751,13 @@ V_3V3
 Text Label 13600 8100 2    60   ~ 0
 GND
 Text Label 13600 7450 2    60   ~ 0
-SDA_p
+SDA_P
 Text Label 13600 7800 2    60   ~ 0
-SDA_n
+SDA_N
 Text Label 12350 7450 0    60   ~ 0
-SCL_p
+SCL_P
 Text Label 12350 7800 0    60   ~ 0
-SCL_n
+SCL_N
 $Comp
 L C C38
 U 1 1 57E8A4A9
@@ -3034,17 +3034,17 @@ Wire Wire Line
 Text Label 12600 5300 0    60   ~ 0
 V_3V3
 Text Label 12600 5400 0    60   ~ 0
-SCL_n_f
+SCL_f_N
 Text Label 12600 5500 0    60   ~ 0
-SCL_p_f
+SCL_f_P
 Text Label 12600 5600 0    60   ~ 0
 GND
 Text Label 12600 6200 0    60   ~ 0
 V_3V3
 Text Label 12600 6300 0    60   ~ 0
-SDA_wn_f
+SDA_w_f_N
 Text Label 12600 6400 0    60   ~ 0
-SDA_wp_f
+SDA_w_f_P
 Text Label 12600 6500 0    60   ~ 0
 GND
 Wire Wire Line
@@ -3148,9 +3148,9 @@ Wire Wire Line
 Text Label 13550 4250 0    60   ~ 0
 V_3V3
 Text Label 13550 4350 0    60   ~ 0
-SDA_rn_f
+SDA_r_f_N
 Text Label 13550 4450 0    60   ~ 0
-SDA_rp_f
+SDA_r_f_P
 Text Label 13550 4550 0    60   ~ 0
 GND
 Text Label 15600 4350 2    60   ~ 0
@@ -3344,33 +3344,33 @@ Wire Wire Line
 Wire Wire Line
 	14650 2350 14150 2350
 Text Label 13150 650  0    60   ~ 0
-clkl_p
+clkl_P
 Text Label 13150 750  0    60   ~ 0
-clkd_p
+clkd_P
 Text Label 13150 850  0    60   ~ 0
-mkd_p
+mkd_P
 Text Label 13150 950  0    60   ~ 0
-start_p
+start_P
 Text Label 13150 1150 0    60   ~ 0
-data0_p
+data0_P
 Text Label 13150 1250 0    60   ~ 0
-data1_p
+data1_P
 Text Label 13150 1550 0    60   ~ 0
-TMS_p
+TMS_P
 Text Label 13150 1650 0    60   ~ 0
-TDI_p
+TDI_P
 Text Label 13150 1750 0    60   ~ 0
-TCK_p
+TCK_P
 Text Label 13150 1850 0    60   ~ 0
-TDO_p
+TDO_P
 Text Label 13150 1950 0    60   ~ 0
-RSTB_p
+RSTB_P
 Text Label 13150 2150 0    60   ~ 0
-SCL_p_f
+SCL_f_P
 Text Label 13150 2250 0    60   ~ 0
-SDA_wp_f
+SDA_w_f_P
 Text Label 13150 2350 0    60   ~ 0
-SDA_rp_f
+SDA_r_f_P
 Wire Wire Line
 	15050 3100 14550 3100
 Wire Wire Line
@@ -3388,33 +3388,33 @@ V_12V
 Text Label 14550 3400 0    60   ~ 0
 GND
 Text Label 14650 650  2    60   ~ 0
-clkl_n
+clkl_N
 Text Label 14650 750  2    60   ~ 0
-clkd_n
+clkd_N
 Text Label 14650 850  2    60   ~ 0
-mkd_n
+mkd_N
 Text Label 14650 950  2    60   ~ 0
-start_n
+start_N
 Text Label 14650 1150 2    60   ~ 0
-data0_n
+data0_N
 Text Label 14650 1250 2    60   ~ 0
-data1_n
+data1_N
 Text Label 14650 1550 2    60   ~ 0
-TMS_n
+TMS_N
 Text Label 14650 1650 2    60   ~ 0
-TDI_n
+TDI_N
 Text Label 14650 1750 2    60   ~ 0
-TCK_n
+TCK_N
 Text Label 14650 1850 2    60   ~ 0
-TDO_n
+TDO_N
 Text Label 14650 1950 2    60   ~ 0
-RSTB_n
+RSTB_N
 Text Label 14650 2150 2    60   ~ 0
-SCL_n_f
+SCL_f_P
 Text Label 14650 2250 2    60   ~ 0
-SDA_wn_f
+SDA_w_f_N
 Text Label 14650 2350 2    60   ~ 0
-SDA_rn_f
+SDA_r_f_N
 Wire Wire Line
 	15400 650  14950 650 
 Wire Wire Line
@@ -3480,59 +3480,59 @@ Wire Wire Line
 Wire Wire Line
 	16350 2150 15900 2150
 Text Label 14950 650  0    60   ~ 0
-clkl_p
+clkl_P
 Text Label 14950 750  0    60   ~ 0
-clkl_n
+clkl_N
 Text Label 14950 850  0    60   ~ 0
-clkd_p
+clkd_P
 Text Label 14950 950  0    60   ~ 0
-clkd_n
+clkd_N
 Text Label 14950 1050 0    60   ~ 0
-mkd_p
+mkd_P
 Text Label 14950 1150 0    60   ~ 0
-mkd_n
+mkd_N
 Text Label 14950 1250 0    60   ~ 0
-start_p
+start_P
 Text Label 14950 1350 0    60   ~ 0
-start_n
+start_N
 Text Label 14950 1450 0    60   ~ 0
-data0_p
+data0_P
 Text Label 14950 1550 0    60   ~ 0
-data0_n
+data0_N
 Text Label 14950 1650 0    60   ~ 0
-data1_p
+data1_P
 Text Label 14950 1750 0    60   ~ 0
-data1_n
+data1_N
 Text Label 14950 1850 0    60   ~ 0
-TMS_p
+TMS_P
 Text Label 14950 1950 0    60   ~ 0
-TMS_n
+TMS_N
 Text Label 14950 2050 0    60   ~ 0
-TDI_p
+TDI_P
 Text Label 14950 2150 0    60   ~ 0
-TDI_n
+TDI_N
 Text Label 16350 2150 2    60   ~ 0
-TCK_n
+TCK_N
 Text Label 16350 2050 2    60   ~ 0
-TCK_p
+TCK_P
 Text Label 16350 1850 2    60   ~ 0
-RSTB_p
+RSTB_P
 Text Label 16350 1950 2    60   ~ 0
-RSTB_n
+RSTB_N
 Text Label 16350 1650 2    60   ~ 0
-TDO_p
+TDO_P
 Text Label 16350 1750 2    60   ~ 0
-TDO_n
+TDO_N
 Text Label 16350 650  2    60   ~ 0
-SCL_p_f
+SCL_f_P
 Text Label 16350 750  2    60   ~ 0
-SCL_n_f
+SCL_f_N
 Text Label 16350 850  2    60   ~ 0
-SDA_wp_f
+SDA_w_f_P
 Text Label 16350 950  2    60   ~ 0
-SDA_wn_f
+SDA_w_f_N
 Text Label 16350 1050 2    60   ~ 0
-SDA_rp_f
+SDA_r_f_P
 Text Label 16350 1150 2    60   ~ 0
-SDA_rn_f
+SDA_r_f_N
 $EndSCHEMATC
