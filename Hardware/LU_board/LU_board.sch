@@ -3583,4 +3583,10 @@ F 3 "" H 14200 2700 50  0000 C CNN
 	1    14200 2700
 	1    0    0    -1  
 $EndComp
+Connection ~ 3200 3300
+Connection ~ 3650 3300
+Connection ~ 3200 6600
+Connection ~ 3650 6600
+Connection ~ 14550 5300
+Connection ~ 14550 6200
 $EndSCHEMATC
