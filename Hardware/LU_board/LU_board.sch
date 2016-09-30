@@ -3288,8 +3288,6 @@ F 3 "" H 15250 3250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	13650 650  13150 650 
-Wire Wire Line
 	13650 750  13150 750 
 Wire Wire Line
 	13650 850  13150 850 
@@ -3300,23 +3298,23 @@ Wire Wire Line
 Wire Wire Line
 	13650 1250 13150 1250
 Wire Wire Line
-	13650 1650 13150 1650
-Wire Wire Line
-	13650 1750 13150 1750
+	13650 1350 13150 1350
 Wire Wire Line
 	13650 1850 13150 1850
 Wire Wire Line
 	13650 1950 13150 1950
 Wire Wire Line
-	13650 1450 13150 1450
+	13650 2350 13150 2350
 Wire Wire Line
 	13650 2150 13150 2150
 Wire Wire Line
 	13650 2250 13150 2250
 Wire Wire Line
-	13650 2350 13150 2350
+	13650 1450 13150 1450
 Wire Wire Line
-	14650 650  14150 650 
+	13650 1650 13150 1650
+Wire Wire Line
+	13650 1750 13150 1750
 Wire Wire Line
 	14650 750  14150 750 
 Wire Wire Line
@@ -3328,48 +3326,50 @@ Wire Wire Line
 Wire Wire Line
 	14650 1250 14150 1250
 Wire Wire Line
-	14650 1650 14150 1650
-Wire Wire Line
-	14650 1750 14150 1750
+	14650 1350 14150 1350
 Wire Wire Line
 	14650 1850 14150 1850
 Wire Wire Line
 	14650 1950 14150 1950
 Wire Wire Line
-	14650 1450 14150 1450
+	14650 2350 14150 2350
 Wire Wire Line
 	14650 2150 14150 2150
 Wire Wire Line
 	14650 2250 14150 2250
 Wire Wire Line
-	14650 2350 14150 2350
-Text Label 13150 650  0    60   ~ 0
-clkl_P
+	14650 1450 14150 1450
+Wire Wire Line
+	14650 1650 14150 1650
+Wire Wire Line
+	14650 1750 14150 1750
 Text Label 13150 750  0    60   ~ 0
-clkd_P
+clkl_P
 Text Label 13150 850  0    60   ~ 0
-mkd_P
+clkd_P
 Text Label 13150 950  0    60   ~ 0
-start_P
+mkd_P
 Text Label 13150 1150 0    60   ~ 0
-data0_P
+start_P
 Text Label 13150 1250 0    60   ~ 0
+data0_P
+Text Label 13150 1350 0    60   ~ 0
 data1_P
-Text Label 13150 1650 0    60   ~ 0
-TMS_P
-Text Label 13150 1750 0    60   ~ 0
-TDI_P
 Text Label 13150 1850 0    60   ~ 0
-TCK_P
+TMS_P
 Text Label 13150 1950 0    60   ~ 0
-TDO_P
-Text Label 13150 1450 0    60   ~ 0
-RSTB_P
-Text Label 13150 2150 0    60   ~ 0
-SCL_f_P
-Text Label 13150 2250 0    60   ~ 0
-SDA_w_f_P
+TDI_P
 Text Label 13150 2350 0    60   ~ 0
+TCK_P
+Text Label 13150 2150 0    60   ~ 0
+TDO_P
+Text Label 13150 2250 0    60   ~ 0
+RSTB_P
+Text Label 13150 1450 0    60   ~ 0
+SCL_f_P
+Text Label 13150 1650 0    60   ~ 0
+SDA_w_f_P
+Text Label 13150 1750 0    60   ~ 0
 SDA_r_f_P
 Wire Wire Line
 	15050 3100 14550 3100
@@ -3387,33 +3387,33 @@ Text Label 14550 3300 0    60   ~ 0
 V_12V
 Text Label 14550 3400 0    60   ~ 0
 GND
-Text Label 14650 650  2    60   ~ 0
-clkl_N
 Text Label 14650 750  2    60   ~ 0
-clkd_N
+clkl_N
 Text Label 14650 850  2    60   ~ 0
-mkd_N
+clkd_N
 Text Label 14650 950  2    60   ~ 0
-start_N
+mkd_N
 Text Label 14650 1150 2    60   ~ 0
-data0_N
+start_N
 Text Label 14650 1250 2    60   ~ 0
+data0_N
+Text Label 14650 1350 2    60   ~ 0
 data1_N
-Text Label 14650 1650 2    60   ~ 0
-TMS_N
-Text Label 14650 1750 2    60   ~ 0
-TDI_N
 Text Label 14650 1850 2    60   ~ 0
-TCK_N
+TMS_N
 Text Label 14650 1950 2    60   ~ 0
-TDO_N
-Text Label 14650 1450 2    60   ~ 0
-RSTB_N
-Text Label 14650 2150 2    60   ~ 0
-SCL_f_P
-Text Label 14650 2250 2    60   ~ 0
-SDA_w_f_N
+TDI_N
 Text Label 14650 2350 2    60   ~ 0
+TCK_N
+Text Label 14650 2150 2    60   ~ 0
+TDO_N
+Text Label 14650 2250 2    60   ~ 0
+RSTB_N
+Text Label 14650 1450 2    60   ~ 0
+SCL_f_N
+Text Label 14650 1650 2    60   ~ 0
+SDA_w_f_N
+Text Label 14650 1750 2    60   ~ 0
 SDA_r_f_N
 Wire Wire Line
 	15400 650  14950 650 
@@ -3440,6 +3440,14 @@ Wire Wire Line
 Wire Wire Line
 	15400 1750 14950 1750
 Wire Wire Line
+	15400 2450 14950 2450
+Wire Wire Line
+	15400 2550 14950 2550
+Wire Wire Line
+	16350 650  15900 650 
+Wire Wire Line
+	16350 750  15900 750 
+Wire Wire Line
 	15400 1850 14950 1850
 Wire Wire Line
 	15400 1950 14950 1950
@@ -3448,9 +3456,9 @@ Wire Wire Line
 Wire Wire Line
 	15400 2150 14950 2150
 Wire Wire Line
-	16350 650  15900 650 
+	15400 2250 14950 2250
 Wire Wire Line
-	16350 750  15900 750 
+	15400 2350 14950 2350
 Wire Wire Line
 	16350 850  15900 850 
 Wire Wire Line
@@ -3463,22 +3471,6 @@ Wire Wire Line
 	16350 1250 15900 1250
 Wire Wire Line
 	16350 1350 15900 1350
-Wire Wire Line
-	16350 1450 15900 1450
-Wire Wire Line
-	16350 1550 15900 1550
-Wire Wire Line
-	16350 1650 15900 1650
-Wire Wire Line
-	16350 1750 15900 1750
-Wire Wire Line
-	16350 1850 15900 1850
-Wire Wire Line
-	16350 1950 15900 1950
-Wire Wire Line
-	16350 2050 15900 2050
-Wire Wire Line
-	16350 2150 15900 2150
 Text Label 14950 650  0    60   ~ 0
 clkl_P
 Text Label 14950 750  0    60   ~ 0
@@ -3503,37 +3495,37 @@ Text Label 14950 1650 0    60   ~ 0
 data1_P
 Text Label 14950 1750 0    60   ~ 0
 data1_N
-Text Label 14950 1850 0    60   ~ 0
+Text Label 14950 2450 0    60   ~ 0
 TMS_P
-Text Label 14950 1950 0    60   ~ 0
+Text Label 14950 2550 0    60   ~ 0
 TMS_N
-Text Label 14950 2050 0    60   ~ 0
-TDI_P
-Text Label 14950 2150 0    60   ~ 0
-TDI_N
-Text Label 16350 2150 2    60   ~ 0
-TCK_N
-Text Label 16350 2050 2    60   ~ 0
-TCK_P
-Text Label 16350 1850 2    60   ~ 0
-RSTB_P
-Text Label 16350 1950 2    60   ~ 0
-RSTB_N
-Text Label 16350 1650 2    60   ~ 0
-TDO_P
-Text Label 16350 1750 2    60   ~ 0
-TDO_N
 Text Label 16350 650  2    60   ~ 0
-SCL_f_P
+TDI_P
 Text Label 16350 750  2    60   ~ 0
-SCL_f_N
-Text Label 16350 850  2    60   ~ 0
-SDA_w_f_P
-Text Label 16350 950  2    60   ~ 0
-SDA_w_f_N
+TDI_N
+Text Label 16350 1350 2    60   ~ 0
+TCK_N
+Text Label 16350 1250 2    60   ~ 0
+TCK_P
 Text Label 16350 1050 2    60   ~ 0
-SDA_r_f_P
+RSTB_P
 Text Label 16350 1150 2    60   ~ 0
+RSTB_N
+Text Label 16350 850  2    60   ~ 0
+TDO_P
+Text Label 16350 950  2    60   ~ 0
+TDO_N
+Text Label 14950 1850 0    60   ~ 0
+SCL_f_P
+Text Label 14950 1950 0    60   ~ 0
+SCL_f_N
+Text Label 14950 2050 0    60   ~ 0
+SDA_w_f_P
+Text Label 14950 2150 0    60   ~ 0
+SDA_w_f_N
+Text Label 14950 2250 0    60   ~ 0
+SDA_r_f_P
+Text Label 14950 2350 0    60   ~ 0
 SDA_r_f_N
 Wire Wire Line
 	13650 1050 13600 1050
