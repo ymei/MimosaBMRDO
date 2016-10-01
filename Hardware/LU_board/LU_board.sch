@@ -2052,7 +2052,7 @@ SDA
 Text Label 12150 5100 2    60   ~ 0
 LU_vchip
 Text Label 12150 5200 2    60   ~ 0
-I_MIM_MON
+LU_vmim
 $Comp
 L R R30
 U 1 1 57E9BEDC
