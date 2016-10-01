@@ -3304,11 +3304,11 @@ Wire Wire Line
 Wire Wire Line
 	13650 1950 13150 1950
 Wire Wire Line
-	13650 2350 13150 2350
+	13650 2250 13150 2250
 Wire Wire Line
 	13650 2150 13150 2150
 Wire Wire Line
-	13650 2250 13150 2250
+	13650 2350 13150 2350
 Wire Wire Line
 	13650 1450 13150 1450
 Wire Wire Line
@@ -3332,11 +3332,11 @@ Wire Wire Line
 Wire Wire Line
 	14650 1950 14150 1950
 Wire Wire Line
-	14650 2350 14150 2350
+	14650 2250 14150 2250
 Wire Wire Line
 	14650 2150 14150 2150
 Wire Wire Line
-	14650 2250 14150 2250
+	14650 2350 14150 2350
 Wire Wire Line
 	14650 1450 14150 1450
 Wire Wire Line
@@ -3359,11 +3359,11 @@ Text Label 13150 1850 0    60   ~ 0
 TMS_P
 Text Label 13150 1950 0    60   ~ 0
 TDI_P
-Text Label 13150 2350 0    60   ~ 0
+Text Label 13150 2250 0    60   ~ 0
 TCK_P
 Text Label 13150 2150 0    60   ~ 0
 TDO_P
-Text Label 13150 2250 0    60   ~ 0
+Text Label 13150 2350 0    60   ~ 0
 RSTB_P
 Text Label 13150 1450 0    60   ~ 0
 SCL_f_P
@@ -3403,11 +3403,11 @@ Text Label 14650 1850 2    60   ~ 0
 TMS_N
 Text Label 14650 1950 2    60   ~ 0
 TDI_N
-Text Label 14650 2350 2    60   ~ 0
+Text Label 14650 2250 2    60   ~ 0
 TCK_N
 Text Label 14650 2150 2    60   ~ 0
 TDO_N
-Text Label 14650 2250 2    60   ~ 0
+Text Label 14650 2350 2    60   ~ 0
 RSTB_N
 Text Label 14650 1450 2    60   ~ 0
 SCL_f_N
@@ -3464,13 +3464,13 @@ Wire Wire Line
 Wire Wire Line
 	16350 950  15900 950 
 Wire Wire Line
-	16350 1050 15900 1050
-Wire Wire Line
-	16350 1150 15900 1150
-Wire Wire Line
 	16350 1250 15900 1250
 Wire Wire Line
 	16350 1350 15900 1350
+Wire Wire Line
+	16350 1050 15900 1050
+Wire Wire Line
+	16350 1150 15900 1150
 Text Label 14950 650  0    60   ~ 0
 clkl_P
 Text Label 14950 750  0    60   ~ 0
@@ -3503,13 +3503,13 @@ Text Label 16350 650  2    60   ~ 0
 TDI_P
 Text Label 16350 750  2    60   ~ 0
 TDI_N
-Text Label 16350 1350 2    60   ~ 0
-TCK_N
-Text Label 16350 1250 2    60   ~ 0
-TCK_P
-Text Label 16350 1050 2    60   ~ 0
-RSTB_P
 Text Label 16350 1150 2    60   ~ 0
+TCK_N
+Text Label 16350 1050 2    60   ~ 0
+TCK_P
+Text Label 16350 1250 2    60   ~ 0
+RSTB_P
+Text Label 16350 1350 2    60   ~ 0
 RSTB_N
 Text Label 16350 850  2    60   ~ 0
 TDO_P
