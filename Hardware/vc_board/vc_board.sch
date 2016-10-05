@@ -187,32 +187,6 @@ F 3 "" H 10950 9400 50  0000 C CNN
 	1    10950 9400
 	1    0    0    -1  
 $EndComp
-$Comp
-L CONN_02X04 P2
-U 1 1 57DB3DA9
-P 1700 6250
-F 0 "P2" H 1700 6500 50  0000 C CNN
-F 1 "CONN_02X04" H 1700 6000 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x04" H 1700 5050 50  0001 C CNN
-F 3 "" H 1700 5050 50  0000 C CNN
-	1    1700 6250
-	1    0    0    -1  
-$EndComp
-$Comp
-L CONN_01X04 P1
-U 1 1 57DB3DEE
-P 1150 6250
-F 0 "P1" H 1150 6500 50  0000 C CNN
-F 1 "CONN_01X04" V 1250 6250 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x04" H 1150 6250 50  0001 C CNN
-F 3 "" H 1150 6250 50  0000 C CNN
-	1    1150 6250
-	1    0    0    -1  
-$EndComp
-Text Label 700  6650 0    60   ~ 0
-MVDD
-Text Label 1700 6650 0    60   ~ 0
-GND
 Text Label 1700 1900 0    60   ~ 0
 MVDD
 Text Label 1750 3400 0    60   ~ 0
@@ -222,40 +196,16 @@ MVDD
 Text Label 1750 5200 0    60   ~ 0
 GND
 $Comp
-L C C2
-U 1 1 57DB53E3
-P 1200 5550
-F 0 "C2" H 1225 5650 50  0000 L CNN
-F 1 "0.1u" H 1225 5450 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 1238 5400 50  0001 C CNN
-F 3 "" H 1200 5550 50  0000 C CNN
-	1    1200 5550
-	1    0    0    -1  
-$EndComp
-$Comp
 L C C3
 U 1 1 57DB563E
-P 1550 5550
-F 0 "C3" H 1575 5650 50  0000 L CNN
-F 1 "0.1u" H 1575 5450 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 1588 5400 50  0001 C CNN
-F 3 "" H 1550 5550 50  0000 C CNN
-	1    1550 5550
-	1    0    0    -1  
+P 1550 5850
+F 0 "C3" H 1575 5950 50  0000 L CNN
+F 1 "0.1u" H 1575 5750 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603" H 1588 5700 50  0001 C CNN
+F 3 "" H 1550 5850 50  0000 C CNN
+	1    1550 5850
+	-1   0    0    1   
 $EndComp
-$Comp
-L C C1
-U 1 1 57DB568C
-P 900 5550
-F 0 "C1" H 925 5650 50  0000 L CNN
-F 1 "0.1u" H 925 5450 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603" H 938 5400 50  0001 C CNN
-F 3 "" H 900 5550 50  0000 C CNN
-	1    900  5550
-	1    0    0    -1  
-$EndComp
-Text Label 1200 5400 0    60   ~ 0
-GND
 $Comp
 L MIMOSA U1
 U 1 1 57DB138C
@@ -391,38 +341,7 @@ Wire Wire Line
 	2050 5500 2150 5500
 Connection ~ 2050 5400
 Wire Wire Line
-	2150 6100 1950 6100
-Wire Wire Line
-	2150 6200 1950 6200
-Wire Wire Line
-	2150 6300 1950 6300
-Wire Wire Line
-	2150 6400 1950 6400
-Connection ~ 950  6200
-Connection ~ 950  6300
-Wire Wire Line
-	1450 6100 1450 6650
-Connection ~ 1450 6200
-Connection ~ 1450 6300
-Wire Wire Line
-	950  6650 700  6650
-Connection ~ 950  6400
-Connection ~ 1450 6400
-Wire Wire Line
-	1450 6650 1700 6650
-Wire Wire Line
-	2150 5900 900  5900
-Wire Wire Line
-	900  5900 900  5700
-Wire Wire Line
-	2150 5800 1200 5800
-Wire Wire Line
-	1200 5800 1200 5700
-Wire Wire Line
 	2150 5700 1550 5700
-Wire Wire Line
-	900  5400 1550 5400
-Connection ~ 1200 5400
 Wire Wire Line
 	3750 3200 4200 3200
 Wire Wire Line
@@ -706,43 +625,6 @@ Text Label 5850 1950 0    60   ~ 0
 TDO_P
 Text Label 5850 2050 0    60   ~ 0
 TDO_N
-$Comp
-L CONN_02X07 P3
-U 1 1 57DC91D5
-P 4500 5500
-F 0 "P3" H 4500 5900 50  0000 C CNN
-F 1 "CONN_02X07" V 4500 5500 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x07" H 4500 4300 50  0001 C CNN
-F 3 "" H 4500 4300 50  0000 C CNN
-	1    4500 5500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3750 5200 4250 5200
-Wire Wire Line
-	3750 5300 4250 5300
-Wire Wire Line
-	3750 5400 4250 5400
-Wire Wire Line
-	3750 5500 4250 5500
-Wire Wire Line
-	3750 5600 4250 5600
-Wire Wire Line
-	3750 5700 4250 5700
-Wire Wire Line
-	3750 5800 4250 5800
-Wire Wire Line
-	4750 5200 4750 5950
-Connection ~ 4750 5300
-Connection ~ 4750 5400
-Connection ~ 4750 5500
-Connection ~ 4750 5600
-Connection ~ 4750 5700
-Wire Wire Line
-	4750 5950 5100 5950
-Connection ~ 4750 5800
-Text Label 5100 5950 2    60   ~ 0
-GND
 $Comp
 L REF200 U7
 U 1 1 57DCA69E
@@ -1612,8 +1494,6 @@ Text Label 13450 6600 0    60   ~ 0
 SCL_N
 Text Label 13450 7150 0    60   ~ 0
 GND
-Wire Wire Line
-	950  6100 950  6650
 $Comp
 L R R15
 U 1 1 57EB4AC1
@@ -1810,7 +1690,7 @@ U 1 1 57F53AA4
 P 15050 1650
 F 0 "P5" H 15050 2700 50  0000 C CNN
 F 1 "CONN_02X20" V 15050 1650 50  0000 C CNN
-F 2 "vc_board:JACK_40PIN_1_27MM" H 15050 700 50  0001 C CNN
+F 2 "Connect:IDC_Header_Straight_40pins" H 15050 700 50  0001 C CNN
 F 3 "" H 15050 700 50  0000 C CNN
 	1    15050 1650
 	1    0    0    -1  
@@ -1831,4 +1711,23 @@ Text Label 16050 2600 2    60   ~ 0
 MIMOSA_VDD
 Text Label 16050 2500 2    60   ~ 0
 GND
+NoConn ~ 3750 5200
+NoConn ~ 3750 5300
+NoConn ~ 3750 5400
+NoConn ~ 3750 5600
+NoConn ~ 3750 5500
+NoConn ~ 3750 5700
+NoConn ~ 3750 5800
+NoConn ~ 2150 6100
+NoConn ~ 2150 6200
+NoConn ~ 2150 6300
+NoConn ~ 2150 6400
+Text Label 1650 6100 0    60   ~ 0
+GND
+Wire Wire Line
+	1550 6000 1550 6100
+Wire Wire Line
+	1550 6100 1650 6100
+NoConn ~ 2150 5800
+NoConn ~ 2150 5900
 $EndSCHEMATC
