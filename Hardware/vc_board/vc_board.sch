@@ -1100,9 +1100,9 @@ Text Label 13950 3250 0    60   ~ 0
 GND
 Text Label 16050 3250 2    60   ~ 0
 GND
-Text Label 13950 3950 0    60   ~ 0
+Text Label 13950 4150 0    60   ~ 0
 TMS_P
-Text Label 16050 3950 2    60   ~ 0
+Text Label 16050 4150 2    60   ~ 0
 TMS_N
 Text Label 13950 3750 0    60   ~ 0
 TDI_P
@@ -1112,9 +1112,9 @@ Text Label 13950 3850 0    60   ~ 0
 TCK_P
 Text Label 16050 3850 2    60   ~ 0
 TCK_N
-Text Label 13950 4150 0    60   ~ 0
+Text Label 13950 3950 0    60   ~ 0
 RSTB_P
-Text Label 16050 4150 2    60   ~ 0
+Text Label 16050 3950 2    60   ~ 0
 RSTB_N
 Text Label 13950 3650 0    60   ~ 0
 TDO_P
@@ -1438,7 +1438,7 @@ Wire Wire Line
 	10500 8800 10500 9250
 Text Label 16050 3150 2    60   ~ 0
 CHIP_VDD
-Text Label 13950 4850 0    60   ~ 0
+Text Label 13950 4950 0    60   ~ 0
 MIMOSA_VDD
 Text Label 16050 4850 2    60   ~ 0
 MIMOSA_VDD
@@ -1453,7 +1453,7 @@ F 1 "CONN_02X20" V 15050 1650 50  0000 C CNN
 F 2 "Connect:IDC_Header_Straight_40pins" H 15050 700 50  0001 C CNN
 F 3 "" H 15050 700 50  0000 C CNN
 	1    15050 1650
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 NoConn ~ 3750 5200
 NoConn ~ 3750 5300
@@ -1529,7 +1529,7 @@ Text Label 16050 4950 2    60   ~ 0
 MIMOSA_VDD
 Wire Wire Line
 	14800 4950 13950 4950
-Text Label 13950 4950 0    60   ~ 0
+Text Label 13950 4850 0    60   ~ 0
 MIMOSA_VDD
 Wire Wire Line
 	13950 800  14800 800 
@@ -1565,13 +1565,13 @@ Text Label 13950 800  0    60   ~ 0
 CHIP_VDD
 Text Label 13950 900  0    60   ~ 0
 GND
-Text Label 13950 1600 0    60   ~ 0
+Text Label 13950 1800 0    60   ~ 0
 TMS_P
 Text Label 13950 1400 0    60   ~ 0
 TDI_P
 Text Label 13950 1500 0    60   ~ 0
 TCK_P
-Text Label 13950 1800 0    60   ~ 0
+Text Label 13950 1600 0    60   ~ 0
 RSTB_P
 Text Label 13950 1300 0    60   ~ 0
 TDO_P
@@ -1643,13 +1643,13 @@ Wire Wire Line
 	15300 2400 16050 2400
 Text Label 16050 900  2    60   ~ 0
 GND
-Text Label 16050 1600 2    60   ~ 0
+Text Label 16050 1800 2    60   ~ 0
 TMS_N
 Text Label 16050 1400 2    60   ~ 0
 TDI_N
 Text Label 16050 1500 2    60   ~ 0
 TCK_N
-Text Label 16050 1800 2    60   ~ 0
+Text Label 16050 1600 2    60   ~ 0
 RSTB_N
 Text Label 16050 1300 2    60   ~ 0
 TDO_N
