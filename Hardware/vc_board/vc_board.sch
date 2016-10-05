@@ -362,14 +362,6 @@ Wire Wire Line
 	3750 4300 4200 4300
 Wire Wire Line
 	3750 4400 4200 4400
-Wire Wire Line
-	3750 4600 4200 4600
-Wire Wire Line
-	3750 4700 4200 4700
-Wire Wire Line
-	3750 4900 4200 4900
-Wire Wire Line
-	3750 5000 4200 5000
 Text Label 4200 3200 2    50   ~ 0
 speak_P
 Text Label 4200 3300 2    50   ~ 0
@@ -390,14 +382,6 @@ Text Label 4200 4300 2    50   ~ 0
 clkl_P
 Text Label 4200 4400 2    50   ~ 0
 clkl_N
-Text Label 4200 4600 2    50   ~ 0
-clkd_N
-Text Label 4200 4700 2    50   ~ 0
-clkd_P
-Text Label 4200 4900 2    50   ~ 0
-mkd_N
-Text Label 4200 5000 2    50   ~ 0
-mkd_P
 Wire Wire Line
 	5350 3750 5800 3750
 Wire Wire Line
@@ -415,14 +399,6 @@ Wire Wire Line
 Wire Wire Line
 	5050 4750 5800 4750
 Wire Wire Line
-	5350 4950 5800 4950
-Wire Wire Line
-	5050 5050 5800 5050
-Wire Wire Line
-	5350 5250 5800 5250
-Wire Wire Line
-	5050 5350 5800 5350
-Wire Wire Line
 	7500 3750 8000 3750
 Wire Wire Line
 	7500 3850 8000 3850
@@ -438,14 +414,6 @@ Wire Wire Line
 	7500 4650 8000 4650
 Wire Wire Line
 	7500 4750 8000 4750
-Wire Wire Line
-	7500 4950 8000 4950
-Wire Wire Line
-	7500 5050 8000 5050
-Wire Wire Line
-	7500 5250 8000 5250
-Wire Wire Line
-	7500 5350 8000 5350
 Text Label 5450 3750 0    60   ~ 0
 data0_P
 Text Label 5450 3850 0    60   ~ 0
@@ -462,14 +430,6 @@ Text Label 5450 4650 0    60   ~ 0
 clkl_in_P
 Text Label 5450 4750 0    60   ~ 0
 clkl_in_N
-Text Label 5450 4950 0    60   ~ 0
-clkd_P
-Text Label 5450 5050 0    60   ~ 0
-clkd_N
-Text Label 5450 5250 0    60   ~ 0
-mkd_P
-Text Label 5450 5350 0    60   ~ 0
-mkd_N
 Text Label 8000 3750 2    60   ~ 0
 data0_out_P
 Text Label 8000 3850 2    60   ~ 0
@@ -486,14 +446,6 @@ Text Label 8000 4650 2    60   ~ 0
 clkl_P
 Text Label 8000 4750 2    60   ~ 0
 clkl_N
-Text Label 8000 4950 2    60   ~ 0
-clkd_out_P
-Text Label 8000 5050 2    60   ~ 0
-clkd_out_N
-Text Label 8000 5250 2    60   ~ 0
-mkd_out_P
-Text Label 8000 5350 2    60   ~ 0
-mkd_out_N
 Wire Wire Line
 	6100 3250 6850 3250
 Connection ~ 6550 3250
@@ -1276,32 +1228,6 @@ F 3 "" H 5200 4650 50  0000 C CNN
 	1    5200 4650
 	0    1    1    0   
 $EndComp
-$Comp
-L R R9
-U 1 1 57E05179
-P 5200 4950
-F 0 "R9" V 5280 4950 50  0000 C CNN
-F 1 "100" V 5200 4950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" V 5130 4950 50  0001 C CNN
-F 3 "" H 5200 4950 50  0000 C CNN
-	1    5200 4950
-	0    1    1    0   
-$EndComp
-$Comp
-L R R10
-U 1 1 57E0523E
-P 5200 5250
-F 0 "R10" V 5280 5250 50  0000 C CNN
-F 1 "100" V 5200 5250 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" V 5130 5250 50  0001 C CNN
-F 3 "" H 5200 5250 50  0000 C CNN
-	1    5200 5250
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	5050 5250 5050 5350
-Wire Wire Line
-	5050 4950 5050 5050
 Wire Wire Line
 	5050 4650 5050 4750
 Wire Wire Line
@@ -1693,7 +1619,7 @@ F 1 "CONN_02X20" V 15050 1650 50  0000 C CNN
 F 2 "Connect:IDC_Header_Straight_40pins" H 15050 700 50  0001 C CNN
 F 3 "" H 15050 700 50  0000 C CNN
 	1    15050 1650
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 Text Label 13950 1700 0    60   ~ 0
 GND
@@ -1730,4 +1656,27 @@ Wire Wire Line
 	1550 6100 1650 6100
 NoConn ~ 2150 5800
 NoConn ~ 2150 5900
+Text Label 1700 5700 0    60   ~ 0
+V_CLP
+NoConn ~ 3750 4600
+NoConn ~ 3750 4700
+NoConn ~ 3750 4900
+NoConn ~ 3750 5000
+NoConn ~ 7500 4950
+NoConn ~ 7500 5050
+NoConn ~ 7500 5250
+NoConn ~ 7500 5350
+NoConn ~ 7500 5550
+NoConn ~ 7500 5650
+NoConn ~ 7500 5850
+NoConn ~ 7500 5950
+NoConn ~ 5800 5950
+NoConn ~ 5800 5850
+NoConn ~ 5800 5650
+NoConn ~ 5800 5550
+NoConn ~ 5800 5350
+NoConn ~ 5800 5250
+NoConn ~ 5800 5050
+NoConn ~ 5800 4950
+NoConn ~ 5800 6250
 $EndSCHEMATC
