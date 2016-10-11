@@ -2,10 +2,10 @@
 
   (general
     (links 110)
-    (no_connects 108)
-    (area 0 0 0 0)
+    (no_connects 110)
+    (area 133.862399 104.031 201.417601 139.492401)
     (thickness 1.6)
-    (drawings 0)
+    (drawings 1)
     (tracks 0)
     (zones 0)
     (modules 5)
@@ -62,7 +62,7 @@
     (pad_drill 0.762)
     (pad_to_mask_clearance 0.2)
     (aux_axis_origin 0 0)
-    (visible_elements FFFFFF7F)
+    (visible_elements 7FFFFFFF)
     (pcbplotparams
       (layerselection 0x00030_80000001)
       (usegerberextensions false)
@@ -544,6 +544,19 @@
       (net 2 GND))
     (pad 33 thru_hole circle (at -20.701 0) (size 0.9144 0.9144) (drill 0.6096) (layers *.Cu *.Mask F.SilkS)
       (net 2 GND))
+  )
+
+  (dimension 33.147243 (width 0.3) (layer Dwgs.User)
+    (gr_text "1.3050 in" (at 211.092979 122.736084 89.78047701) (layer Dwgs.User)
+      (effects (font (size 1.5 1.5) (thickness 0.3)))
+    )
+    (feature1 (pts (xy 180.34 139.192) (xy 212.379469 139.314757)))
+    (feature2 (pts (xy 180.467 106.045) (xy 212.506469 106.167757)))
+    (crossbar (pts (xy 209.806489 106.157412) (xy 209.679489 139.304412)))
+    (arrow1a (pts (xy 209.679489 139.304412) (xy 209.097389 138.17567)))
+    (arrow1b (pts (xy 209.679489 139.304412) (xy 210.270222 138.180163)))
+    (arrow2a (pts (xy 209.806489 106.157412) (xy 209.215756 107.281661)))
+    (arrow2b (pts (xy 209.806489 106.157412) (xy 210.388589 107.286154)))
   )
 
 )
