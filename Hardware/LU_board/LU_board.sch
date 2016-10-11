@@ -3223,27 +3223,27 @@ Wire Wire Line
 	17150 9900 16650 9900
 Text Label 15650 8900 0    60   ~ 0
 clkl_P
-Text Label 15650 9300 0    60   ~ 0
-start_P
-Text Label 15650 9400 0    60   ~ 0
-data0_P
-Text Label 15650 9500 0    60   ~ 0
-data1_P
-Text Label 15650 10000 0    60   ~ 0
-TMS_P
-Text Label 15650 10100 0    60   ~ 0
-TDI_P
-Text Label 15650 10400 0    60   ~ 0
-TCK_P
-Text Label 15650 10300 0    60   ~ 0
-TDO_P
 Text Label 15650 10500 0    60   ~ 0
-RSTB_P
-Text Label 15650 9600 0    60   ~ 0
-SCL_f_P
+start_P
+Text Label 15650 10300 0    60   ~ 0
+data0_P
+Text Label 15650 10400 0    60   ~ 0
+data1_P
+Text Label 15650 10100 0    60   ~ 0
+TMS_P
 Text Label 15650 9800 0    60   ~ 0
-SDA_w_f_P
+TDI_P
 Text Label 15650 9900 0    60   ~ 0
+TCK_P
+Text Label 15650 9600 0    60   ~ 0
+TDO_P
+Text Label 15650 10000 0    60   ~ 0
+RSTB_P
+Text Label 15650 9400 0    60   ~ 0
+SCL_f_P
+Text Label 15650 9500 0    60   ~ 0
+SDA_w_f_P
+Text Label 15650 9300 0    60   ~ 0
 SDA_r_f_P
 Wire Wire Line
 	2200 14100 1700 14100
@@ -3261,27 +3261,27 @@ Text Label 1700 14300 0    60   ~ 0
 GND
 Text Label 17150 8900 2    60   ~ 0
 clkl_N
-Text Label 17150 9300 2    60   ~ 0
-start_N
-Text Label 17150 9400 2    60   ~ 0
-data0_N
-Text Label 17150 9500 2    60   ~ 0
-data1_N
-Text Label 17150 10000 2    60   ~ 0
-TMS_N
-Text Label 17150 10100 2    60   ~ 0
-TDI_N
-Text Label 17150 10400 2    60   ~ 0
-TCK_N
-Text Label 17150 10300 2    60   ~ 0
-TDO_N
 Text Label 17150 10500 2    60   ~ 0
-RSTB_N
-Text Label 17150 9600 2    60   ~ 0
-SCL_f_N
+start_N
+Text Label 17150 10300 2    60   ~ 0
+data0_N
+Text Label 17150 10400 2    60   ~ 0
+data1_N
+Text Label 17150 10100 2    60   ~ 0
+TMS_N
 Text Label 17150 9800 2    60   ~ 0
-SDA_w_f_N
+TDI_N
 Text Label 17150 9900 2    60   ~ 0
+TCK_N
+Text Label 17150 9600 2    60   ~ 0
+TDO_N
+Text Label 17150 10000 2    60   ~ 0
+RSTB_N
+Text Label 17150 9400 2    60   ~ 0
+SCL_f_N
+Text Label 17150 9500 2    60   ~ 0
+SDA_w_f_N
+Text Label 17150 9300 2    60   ~ 0
 SDA_r_f_N
 Wire Wire Line
 	18400 8800 17950 8800
