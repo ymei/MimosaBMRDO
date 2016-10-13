@@ -1045,13 +1045,11 @@ Wire Wire Line
 Wire Wire Line
 	14800 3450 13950 3450
 Wire Wire Line
-	14800 3650 13950 3650
+	14800 3550 13950 3550
 Wire Wire Line
 	14800 3750 13950 3750
 Wire Wire Line
 	14800 3850 13950 3850
-Wire Wire Line
-	13950 4050 14800 4050
 Wire Wire Line
 	14800 4150 13950 4150
 Wire Wire Line
@@ -1073,13 +1071,11 @@ Wire Wire Line
 Wire Wire Line
 	15300 3450 16050 3450
 Wire Wire Line
-	15300 3650 16050 3650
+	15300 3550 16050 3550
 Wire Wire Line
 	15300 3750 16050 3750
 Wire Wire Line
 	15300 3850 16050 3850
-Wire Wire Line
-	15300 4050 16050 4050
 Wire Wire Line
 	15300 4150 16050 4150
 Wire Wire Line
@@ -1116,14 +1112,10 @@ Text Label 13950 3950 0    60   ~ 0
 RSTB_P
 Text Label 16050 3950 2    60   ~ 0
 RSTB_N
-Text Label 13950 3650 0    60   ~ 0
+Text Label 13950 3550 0    60   ~ 0
 TDO_P
-Text Label 16050 3650 2    60   ~ 0
+Text Label 16050 3550 2    60   ~ 0
 TDO_N
-Text Label 13950 4050 0    60   ~ 0
-GND
-Text Label 16050 4050 2    60   ~ 0
-GND
 Text Label 13950 4450 0    60   ~ 0
 data0_out_P
 Text Label 16050 4450 2    60   ~ 0
@@ -1152,14 +1144,14 @@ Text Label 13950 3450 0    60   ~ 0
 SDA_P
 Text Label 16050 3450 2    60   ~ 0
 SDA_N
-Text Label 13950 3550 0    60   ~ 0
+Text Label 13950 3650 0    60   ~ 0
 GND
 Wire Wire Line
-	15300 3550 16050 3550
+	15300 3650 16050 3650
 Wire Wire Line
 	16050 4850 15300 4850
 Wire Wire Line
-	14800 3550 13950 3550
+	14800 3650 13950 3650
 Wire Wire Line
 	14800 4850 13950 4850
 $Comp
@@ -1442,7 +1434,7 @@ Text Label 13950 4950 0    60   ~ 0
 MIMOSA_VDD
 Text Label 16050 4850 2    60   ~ 0
 MIMOSA_VDD
-Text Label 16050 3550 2    60   ~ 0
+Text Label 16050 3650 2    60   ~ 0
 GND
 $Comp
 L CONN_02X20 P5
@@ -1453,7 +1445,7 @@ F 1 "CONN_02X20" V 15050 1650 50  0000 C CNN
 F 2 "Connect:IDC_Header_Straight_40pins" H 15050 700 50  0001 C CNN
 F 3 "" H 15050 700 50  0000 C CNN
 	1    15050 1650
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 NoConn ~ 3750 5200
 NoConn ~ 3750 5300
@@ -1540,13 +1532,11 @@ Wire Wire Line
 Wire Wire Line
 	14800 1100 13950 1100
 Wire Wire Line
-	14800 1300 13950 1300
+	14800 1200 13950 1200
 Wire Wire Line
 	14800 1400 13950 1400
 Wire Wire Line
 	14800 1500 13950 1500
-Wire Wire Line
-	13950 1700 14800 1700
 Wire Wire Line
 	14800 1800 13950 1800
 Wire Wire Line
@@ -1573,10 +1563,8 @@ Text Label 13950 1500 0    60   ~ 0
 TCK_P
 Text Label 13950 1600 0    60   ~ 0
 RSTB_P
-Text Label 13950 1300 0    60   ~ 0
+Text Label 13950 1200 0    60   ~ 0
 TDO_P
-Text Label 13950 1700 0    60   ~ 0
-GND
 Text Label 13950 2100 0    60   ~ 0
 data0_out_P
 Text Label 13950 2200 0    60   ~ 0
@@ -1591,10 +1579,10 @@ Text Label 13950 1000 0    60   ~ 0
 SCL_P
 Text Label 13950 1100 0    60   ~ 0
 SDA_P
-Text Label 13950 1200 0    60   ~ 0
+Text Label 13950 1300 0    60   ~ 0
 GND
 Wire Wire Line
-	14800 1200 13950 1200
+	14800 1300 13950 1300
 Wire Wire Line
 	14800 2500 13950 2500
 Text Label 13950 2000 0    60   ~ 0
@@ -1620,13 +1608,11 @@ Wire Wire Line
 Wire Wire Line
 	15300 1100 16050 1100
 Wire Wire Line
-	15300 1300 16050 1300
+	15300 1200 16050 1200
 Wire Wire Line
 	15300 1400 16050 1400
 Wire Wire Line
 	15300 1500 16050 1500
-Wire Wire Line
-	15300 1700 16050 1700
 Wire Wire Line
 	15300 1800 16050 1800
 Wire Wire Line
@@ -1651,10 +1637,8 @@ Text Label 16050 1500 2    60   ~ 0
 TCK_N
 Text Label 16050 1600 2    60   ~ 0
 RSTB_N
-Text Label 16050 1300 2    60   ~ 0
+Text Label 16050 1200 2    60   ~ 0
 TDO_N
-Text Label 16050 1700 2    60   ~ 0
-GND
 Text Label 16050 2100 2    60   ~ 0
 data0_out_N
 Text Label 16050 2200 2    60   ~ 0
@@ -1670,7 +1654,7 @@ SCL_N
 Text Label 16050 1100 2    60   ~ 0
 SDA_N
 Wire Wire Line
-	15300 1200 16050 1200
+	15300 1300 16050 1300
 Wire Wire Line
 	16050 2500 15300 2500
 Text Label 16050 2000 2    60   ~ 0
@@ -1681,7 +1665,7 @@ Text Label 16050 800  2    60   ~ 0
 CHIP_VDD
 Text Label 16050 2500 2    60   ~ 0
 MIMOSA_VDD
-Text Label 16050 1200 2    60   ~ 0
+Text Label 16050 1300 2    60   ~ 0
 GND
 Wire Wire Line
 	15300 700  16050 700 
