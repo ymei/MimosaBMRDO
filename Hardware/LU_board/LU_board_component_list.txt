@@ -1,11 +1,11 @@
 Name                 Package         Quantity
 MIC39152             TO-263-5             3           http://www.digikey.com/product-detail/en/microchip-technology/MIC39152WU/576-3664-5-ND/2233985
 AD626                SOIC-8               2           http://www.digikey.com/product-detail/en/analog-devices-inc/AD626ARZ-REEL7/AD626ARZ-REEL7CT-ND/3314226
-LT1782               SOT-23-6             2           http://www.digikey.com/product-detail/en/linear-technology/LT1782IS6-TRMPBF/LT1782IS6-TRMPBFCT-ND/891495
+LT1782     *         TSOT-23-6            2           http://www.digikey.com/product-detail/en/linear-technology/LT1782IS6-TRMPBF/LT1782IS6-TRMPBFCT-ND/891495
 NL17SZ125            SOT-353              4           http://www.digikey.com/product-detail/en/on-semiconductor/NL17SZ125DFT2G/NL17SZ125DFT2GOSCT-ND/1139962
 AD8611               SOIC-8               3           http://www.digikey.com/product-detail/en/analog-devices-inc/AD8611ARZ/AD8611ARZ-ND/751192
-LT6654               SOT-23-6             1           http://www.digikey.com/product-detail/en/linear-technology/LT6654BHS6-3.3-TRMPBF/LT6654BHS6-3.3-TRMPBFCT-ND/2485844
-AD7993               TSSOP-16             1           http://www.digikey.com/product-detail/en/analog-devices-inc/AD7993BRUZ-0/AD7993BRUZ-0-ND/819959
+LT6654     *         TSOT-23-6            1           http://www.digikey.com/product-detail/en/linear-technology/LT6654BHS6-3.3-TRMPBF/LT6654BHS6-3.3-TRMPBFCT-ND/2485844
+AD7993     *         TSSOP-16             1           http://www.digikey.com/product-detail/en/analog-devices-inc/AD7993BRUZ-0/AD7993BRUZ-0-ND/819959
 PTH08T240W                                1
 AD5252               TSSOP-14             1           http://www.digikey.com/product-detail/en/analog-devices-inc/AD5252BRUZ10-RL7/AD5252BRUZ10-RL7CT-ND/3727016
 LTC2635              QFN-16               1           http://www.digikey.com/product-detail/en/linear-technology/LTC2635CUD-LZ12-PBF/LTC2635CUD-LZ12-PBF-ND/2195892
