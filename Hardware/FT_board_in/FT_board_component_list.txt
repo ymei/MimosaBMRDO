@@ -1,0 +1,2 @@
+Name                 Package         Quantity
+DB50                 DB50               1             http://www.digikey.com/product-detail/en/harting/09665526616/1195-2568-ND/3181151 

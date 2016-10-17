@@ -1,0 +1,13 @@
+Name                 Package         Quantity
+FIN1108              TSSOP-48            1        http://www.digikey.com/product-detail/en/fairchild-semiconductor/FIN1108MTDX/FIN1108MTDXCT-ND/1147716
+SN65LVDT14           TSSOP_20            1        http://www.digikey.com/product-detail/en/texas-instruments/SN65LVDT14PW/296-12736-5-ND/465498
+REF200               SOIC-8              1        http://www.digikey.com/product-detail/en/texas-instruments/REF200AU-2K5/296-27726-1-ND/2356442
+MAX4165              SOT-23-5 SMD        1        http://www.digikey.com/product-detail/en/maxim-integrated/MAX4165EUK-T/MAX4165EUK-TCT-ND/2699409
+AD7418               MSOP-8              1        http://www.newark.com/analog-devices/ad7418armz/temperature-sensor-ic-digital/dp/23X6196?ost=AD7418&selectedCategoryId=&categoryNameResp=All%2BCategories&searchView=table&iscrfnonsku=false
+PCA9615              TSSOP-10            1        http://www.digikey.com/product-detail/en/nxp-semiconductors/PCA9615DPJ/568-11484-1-ND/4864508
+0.1u   capacitor     0603                26
+100-om resister      0603                4
+2K     resister      0603                2
+600-om resister      0603                4
+120-om resister      0603                2
+10u    capacitor     3216                4
