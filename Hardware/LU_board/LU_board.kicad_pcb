@@ -1,9 +1,9 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.2-stable)
+(kicad_pcb (version 4) (host pcbnew 4.0.4-stable)
 
   (general
     (links 469)
     (no_connects 0)
-    (area 50.724999 30.404999 182.955001 114.375001)
+    (area 40.294787 20.60196 197.675275 128.366501)
     (thickness 1.6)
     (drawings 42)
     (tracks 1906)
@@ -22,8 +22,8 @@
 
   (layers
     (0 F.Cu signal)
-    (1 GND signal hide)
-    (2 POWER signal hide)
+    (1 GND signal)
+    (2 POWER signal)
     (31 B.Cu signal)
     (32 B.Adhes user)
     (33 F.Adhes user)
@@ -86,7 +86,7 @@
     (grid_origin 40.42156 117.18036)
     (visible_elements 7FFFFFFF)
     (pcbplotparams
-      (layerselection 0x000fc_80000007)
+      (layerselection 0x010fc_80000007)
       (usegerberextensions false)
       (excludeedgelayer true)
       (linewidth 0.100000)
@@ -105,11 +105,11 @@
       (plotinvisibletext false)
       (padsonsilk false)
       (subtractmaskfromsilk false)
-      (outputformat 4)
+      (outputformat 1)
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory gerber/))
   )
 
   (net 0 "")
@@ -7086,9 +7086,9 @@
   (segment (start 65.3288 54.77) (end 65.3288 52.25796) (width 0.254) (layer F.Cu) (net 70))
   (segment (start 65.3288 52.25796) (end 65.33134 52.25542) (width 0.254) (layer F.Cu) (net 70))
   (via (at 65.33134 52.25542) (size 0.508) (drill 0.254) (layers F.Cu B.Cu) (net 70))
-  (segment (start 87.40648 52.86432) (end 90.31172 52.86432) (width 0.254) (layer F.Cu) (net 71) (status 400000))
+  (segment (start 87.40648 52.86432) (end 90.31172 52.86432) (width 0.254) (layer F.Cu) (net 71))
   (segment (start 90.31172 52.86432) (end 91.80056 54.35316) (width 0.254) (layer F.Cu) (net 71))
-  (segment (start 91.80056 54.35316) (end 91.80056 55.22936) (width 0.254) (layer F.Cu) (net 71) (status 800000))
+  (segment (start 91.80056 54.35316) (end 91.80056 55.22936) (width 0.254) (layer F.Cu) (net 71))
   (segment (start 62.7888 54.77) (end 62.7888 56.68194) (width 0.254) (layer F.Cu) (net 72))
   (segment (start 62.7888 56.68194) (end 62.7895 56.68264) (width 0.254) (layer F.Cu) (net 72))
   (segment (start 109.61694 50.61528) (end 109.4255 50.42384) (width 0.254) (layer F.Cu) (net 73))
@@ -7194,7 +7194,7 @@
     (polygon
       (pts
         (xy 78.2955 93.9165) (xy 86.0425 93.9165) (xy 86.0425 97.4725) (xy 70.5485 97.4725) (xy 70.5485 91.1225)
-        (xy 74.9935 91.1225) (xy 74.9935 88.4555) (xy 78.2955 88.4555) (xy 78.2955 93.9165)
+        (xy 74.9935 91.1225) (xy 74.9935 88.4555) (xy 78.2955 88.4555)
       )
     )
     (filled_polygon
@@ -7214,7 +7214,6 @@
       (pts
         (xy 110.5535 93.4085) (xy 107.2515 93.4085) (xy 107.2515 92.1385) (xy 102.4255 92.1385) (xy 102.4255 93.9165)
         (xy 98.8695 93.9165) (xy 98.8695 90.6145) (xy 102.9335 90.6145) (xy 102.9335 85.0265) (xy 110.5535 85.0265)
-        (xy 110.5535 93.4085)
       )
     )
     (filled_polygon
@@ -7272,7 +7271,7 @@
     (polygon
       (pts
         (xy 111.28756 46.18736) (xy 60.10656 46.18736) (xy 60.10656 57.61736) (xy 111.28756 57.61736) (xy 111.28756 109.62386)
-        (xy 49.50206 109.62386) (xy 49.50206 29.16936) (xy 111.28756 29.16936) (xy 111.28756 46.18736)
+        (xy 49.50206 109.62386) (xy 49.50206 29.16936) (xy 111.28756 29.16936)
       )
     )
     (filled_polygon
@@ -7604,7 +7603,6 @@
       (pts
         (xy 184.18556 115.59286) (xy 49.50206 115.59286) (xy 49.50206 110.19536) (xy 111.85906 110.19536) (xy 111.85906 57.17286)
         (xy 60.55106 57.17286) (xy 60.55106 46.56836) (xy 111.85906 46.56836) (xy 111.85906 29.16936) (xy 184.18556 29.16936)
-        (xy 184.18556 115.59286)
       )
     )
     (filled_polygon
@@ -9343,7 +9341,6 @@
       (pts
         (xy 157.861 48.0695) (xy 133.5405 48.0695) (xy 133.5405 65.405) (xy 113.411 65.405) (xy 113.411 63.1825)
         (xy 131.6355 63.1825) (xy 131.6355 46.1645) (xy 155.1305 46.1645) (xy 155.1305 41.3385) (xy 157.861 41.3385)
-        (xy 157.861 48.0695)
       )
     )
     (filled_polygon
@@ -9379,7 +9376,7 @@
     (polygon
       (pts
         (xy 74.45756 89.24036) (xy 65.82156 89.24036) (xy 65.82156 104.48036) (xy 60.99556 104.48036) (xy 60.99556 83.65236)
-        (xy 74.45756 83.65236) (xy 74.45756 89.24036)
+        (xy 74.45756 83.65236)
       )
     )
     (filled_polygon
