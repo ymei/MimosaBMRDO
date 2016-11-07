@@ -33,8 +33,8 @@
 #include <string.h>
 #include <arpa/inet.h>
 
-//#include "common.h"
-//#include "command.h"
+#include "common.h"
+#include "command.h"
 
 char *conv16network_endian(uint16_t *buf, size_t n)
 {
