@@ -124,7 +124,7 @@ static int get_socket(char *host, char *port)
             close(sockfd);
             warn("setsockopt SO_KEEPALIVE");
             continue;
-        } 
+        }
         if(connect_retry(sockfd, ap->ai_addr, ap->ai_addrlen) < 0) {
             close(sockfd);
             warn("connect");
@@ -202,9 +202,9 @@ static void atexit_flush_files(void)
 static void signal_kill_handler(int sig)
 {
     printf("\nstart time = %zd\n", startTime);
-    printf("stop time  = %zd\n", time(NULL));    
+    printf("stop time  = %zd\n", time(NULL));
     fflush(stdout);
-    
+
     error_printf("Killed, cleaning up...\n");
     atexit(atexit_flush_files);
     exit(EXIT_SUCCESS);
@@ -285,30 +285,30 @@ int main(int argc, char **argv)
     ssize_t i;
     size_t n, nWfmPerChunk = 100;
 
-    if(argc<6) {
-        error_printf("%s scopeAdddress scopePort outFileName chMask(0x..) nEvents nWfmPerChunk\n",
-                     argv[0]);
-        return EXIT_FAILURE;
-    }
+    // if(argc<6) {
+    //     error_printf("%s scopeAdddress scopePort outFileName chMask(0x..) nEvents nWfmPerChunk\n",
+    //                  argv[0]);
+    //     return EXIT_FAILURE;
+    // }
     scopeAddress = argv[1];
     scopePort = argv[2];
-    outFileName = argv[3];
-    nEvents = atol(argv[5]);
-
-    errno = 0;
-    chMask = strtol(argv[4], &p, 16);
-    v = chMask;
-    for(c=0; v; c++) v &= v - 1; /* Brian Kernighan's way of counting bits */
-    nCh = c;
-    if(errno != 0 || *p != 0 || p == argv[4] || chMask <= 0 || nCh>SCOPE_NCH) {
-        error_printf("Invalid chMask input: %s\n", argv[4]);
-        return EXIT_FAILURE;
-    }
-    if(argc>=7)
-        nWfmPerChunk = atol(argv[6]);
-
-    debug_printf("outFileName: %s, chMask: 0x%02x, nCh: %zd, nEvents: %zd, nWfmPerChunk: %zd\n",
-                 outFileName, chMask, nCh, nEvents, nWfmPerChunk);
+    // outFileName = argv[3];
+    // nEvents = atol(argv[5]);
+    //
+    // errno = 0;
+    // chMask = strtol(argv[4], &p, 16);
+    // v = chMask;
+    // for(c=0; v; c++) v &= v - 1; /* Brian Kernighan's way of counting bits */
+    // nCh = c;
+    // if(errno != 0 || *p != 0 || p == argv[4] || chMask <= 0 || nCh>SCOPE_NCH) {
+    //     error_printf("Invalid chMask input: %s\n", argv[4]);
+    //     return EXIT_FAILURE;
+    // }
+    // if(argc>=7)
+    //     nWfmPerChunk = atol(argv[6]);
+    //
+    // debug_printf("outFileName: %s, chMask: 0x%02x, nCh: %zd, nEvents: %zd, nWfmPerChunk: %zd\n",
+    //              outFileName, chMask, nCh, nEvents, nWfmPerChunk);
 
     sockfd = get_socket(scopeAddress, scopePort);
     if(sockfd < 0) {
@@ -329,8 +329,8 @@ int main(int argc, char **argv)
 
     /* dac value */
     // n = cmd_write_register(&buf32, 0, 40632); // 3.1V
-    n = cmd_write_register(&buf32, 0, 32768); // 2.5V
-    // n = cmd_read_register(&buf32, 3);
+    //n = cmd_write_register(&buf32, 0, 32768); // 2.5V
+    n = cmd_read_register(&buf32, 3);
     printf("sent: ");
     for(i=0; i<n; i++) {
         printf("%02x ", (unsigned char)buf[i]);
@@ -343,42 +343,42 @@ int main(int argc, char **argv)
     }
     printf("\n");
 
-    /* bit 0 sends DAC, bit 8 resets topmetal_simple module */
-    n = cmd_write_register(&buf32, 1, 0x0101);
-    n = query_response(sockfd, buf, n, buf, 0);
-    n = cmd_write_register(&buf32, 1, 0x0000);
-    n = query_response(sockfd, buf, n, buf, 0);
-
-    /* select clock source */
-    n = cmd_write_register(&buf32, 5, 0x0003);
-    n = query_response(sockfd, buf, n, buf, 0);
-    /* (15) trigger rate control, (14) trigger control */
-    /* low 4 bit controls number of resets between triggers */
-    /* 1 trigger every 2**((bit 3 downto 0)+1) resets */
-    n = cmd_write_register(&buf32, 4, 0x8000);
-    n = query_response(sockfd, buf, n, buf, 0);
-    /* trigger delay, trigger_out at val+1 TM_CLK cycles after new frame starts */
-    n = cmd_write_register(&buf32, 6, 4100);
-    n = query_response(sockfd, buf, n, buf, 0);
-    /* bit10 starts TM, bit7~4 controls number of frames between resets */
-    /* 1 reset every 2**((bit 7 downto 4)+1) frames, reset lasts one full frame */
-    /* (bit 3 downto 0) controls TM_CLK, = f_CLK/2**((bit 3 downto 0)+1) */
-    /* bit 15 (=1) vetos the output of EX_RST, bit 14 vetos trigger_out */
-    n = cmd_write_register(&buf32, 2, 0xc400); /* set vetos here, but not bit7~0 */
-    n = query_response(sockfd, buf, n, buf, 0);
-    n = cmd_write_register(&buf32, 2, 0xc000); /* set both vetos and bit7~0 */
-    n = query_response(sockfd, buf, n, buf, 0);
-    /* bit 15 enables stop_control, bit (9 downto 0) sets the stop_address */
-    /* adress of 0xff will stop at pixel #238 (counting start from 0) */
-    Sleep(100);
-    n = cmd_write_register(&buf32, 3, 0x80d5);
-    n = query_response(sockfd, buf, n, buf, 0);
-    /* force a trigger */
-    Sleep(100);
-    n = cmd_send_pulse(&buf32, 0x01); // pulse_reg(0)
-    n = query_response(sockfd, buf, n, buf, 0);
-
-    stopTime = time(NULL);
+    // /* bit 0 sends DAC, bit 8 resets topmetal_simple module */
+    // n = cmd_write_register(&buf32, 1, 0x0101);
+    // n = query_response(sockfd, buf, n, buf, 0);
+    // n = cmd_write_register(&buf32, 1, 0x0000);
+    // n = query_response(sockfd, buf, n, buf, 0);
+    //
+    // /* select clock source */
+    // n = cmd_write_register(&buf32, 5, 0x0003);
+    // n = query_response(sockfd, buf, n, buf, 0);
+    // /* (15) trigger rate control, (14) trigger control */
+    // /* low 4 bit controls number of resets between triggers */
+    // /* 1 trigger every 2**((bit 3 downto 0)+1) resets */
+    // n = cmd_write_register(&buf32, 4, 0x8000);
+    // n = query_response(sockfd, buf, n, buf, 0);
+    // /* trigger delay, trigger_out at val+1 TM_CLK cycles after new frame starts */
+    // n = cmd_write_register(&buf32, 6, 4100);
+    // n = query_response(sockfd, buf, n, buf, 0);
+    // /* bit10 starts TM, bit7~4 controls number of frames between resets */
+    // /* 1 reset every 2**((bit 7 downto 4)+1) frames, reset lasts one full frame */
+    // /* (bit 3 downto 0) controls TM_CLK, = f_CLK/2**((bit 3 downto 0)+1) */
+    // /* bit 15 (=1) vetos the output of EX_RST, bit 14 vetos trigger_out */
+    // n = cmd_write_register(&buf32, 2, 0xc400); /* set vetos here, but not bit7~0 */
+    // n = query_response(sockfd, buf, n, buf, 0);
+    // n = cmd_write_register(&buf32, 2, 0xc000); /* set both vetos and bit7~0 */
+    // n = query_response(sockfd, buf, n, buf, 0);
+    // /* bit 15 enables stop_control, bit (9 downto 0) sets the stop_address */
+    // /* adress of 0xff will stop at pixel #238 (counting start from 0) */
+    // Sleep(100);
+    // n = cmd_write_register(&buf32, 3, 0x80d5);
+    // n = query_response(sockfd, buf, n, buf, 0);
+    // /* force a trigger */
+    // Sleep(100);
+    // n = cmd_send_pulse(&buf32, 0x01); // pulse_reg(0)
+    // n = query_response(sockfd, buf, n, buf, 0);
+    //
+     stopTime = time(NULL);
 //    pthread_join(wTid, NULL);
 
     printf("\nstart time = %zd\n", startTime);
