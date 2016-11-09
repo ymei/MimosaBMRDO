@@ -330,19 +330,43 @@ int main(int argc, char **argv)
     /* dac value */
     // n = cmd_write_register(&buf32, 0, 40632); // 3.1V
     //n = cmd_write_register(&buf32, 0, 32768); // 2.5V
-    n = cmd_read_register(&buf32, 3);
+    //n = cmd_read_register(&buf32, 3);
+    FILE *fp;
+    char buffer[15];
+    fp = fopen("S1_L2.dat","r");
+    fseek(fp,SEEK_SET,0);
+    size_t word_counter=0;
+    uint32_t * jtag_buf;
+    while(1 == fread(buffer,11,1,fp)){word_counter++;}
+    jtag_buf = (uint32_t*)calloc(word_counter, sizeof(uint32_t));
+    fseek(fp,SEEK_SET,0);
+    uint32_t wd;
+    int i=0;
+    while(1 == fread(buffer,11,1,fp))
+    {
+      sscanf(buffer,"%x",&wd);
+      printf("0x%08x\n",wd);
+      jtag_buf[i] = wd;
+      i++;
+    }
+    n = cmd_write_memory(&buf32, 0,jtag_buf,word_counter);
     printf("sent: ");
     for(i=0; i<n; i++) {
         printf("%02x ", (unsigned char)buf[i]);
     }
     printf("\n");
     n = query_response(sockfd, buf, n, buf, 0);
+    n = cmd_send_pulse(&buf32, 0x0000000c);
+    n = query_response(sockfd, buf, n, buf, 0);
+    sleep(10);
+    n = cmd_read_memory(&buf32, 0,word_counter);
+    n = query_response(sockfd, buf, n, buf, 1);
     printf("received: ");
     for(i=0; i<n; i++) {
         printf("%02x ", (unsigned char)buf[i]);
     }
     printf("\n");
-
+    fclose(f);
     // /* bit 0 sends DAC, bit 8 resets topmetal_simple module */
     // n = cmd_write_register(&buf32, 1, 0x0101);
     // n = query_response(sockfd, buf, n, buf, 0);
