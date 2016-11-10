@@ -10,11 +10,47 @@ class Cmd:
         self.cmdGen = cdll.LoadLibrary(self.soname)
         self.buf = create_string_buffer(self.nmax)
 
+    def cmd_send_pulse(self, mask):
+        cfun = self.cmdGen.cmd_send_pulse
+        buf = addressof(self.buf)
+        n = cfun(byref(c_void_p(buf)), c_uint(mask))
+        return self.buf.raw[0:n-1]
+
+    def cmd_read_status(self, addr):
+        cfun = self.cmdGen.cmd_read_status
+        buf = addressof(self.buf)
+        n = cfun(byref(c_void_p(buf)), c_uint(addr))
+        return self.buf.raw[0:n-1]
+
+    def cmd_write_memory(self, addr, aval, nval):
+        cfun = self.cmdGen.cmd_write_memory
+        buf = addressof(self.buf)
+        n = cfun(byref(c_void_p(buf)), c_uint(addr), c_void_p(aval), c_size_t(nval))
+        return self.buf.raw[0:n-1]
+
+    def cmd_read_memory(self, addr, val):
+        cfun = self.cmdGen.cmd_read_memory
+        buf = addressof(self.buf)
+        n = cfun(byref(c_void_p(buf)), c_uint(addr), c_uint(val))
+        return self.buf.raw[0:n-1]
+
     def write_register(self, addr, val):
         cfun = self.cmdGen.cmd_write_register
         buf = addressof(self.buf)
         n = cfun(byref(c_void_p(buf)), c_uint(addr), c_uint(val))
-        return self.buf.raw[0:n]
+        return self.buf.raw[0:n-1]
+
+    def cmd_read_register(self, addr):
+        cfun = self.cmdGen.cmd_read_register
+        buf = addressof(self.buf)
+        n = cfun(byref(c_void_p(buf)), c_uint(addr))
+        return self.buf.raw[0:n-1]
+
+    def cmd_read_datafifo(self, val):
+        cfun = self.cmdGen.cmd_read_datafifo
+        buf = addressof(self.buf)
+        n = cfun(byref(c_void_p(buf)), c_uint(val))
+        return self.buf.raw[0:n-1]
 
 if __name__ == "__main__":
     cmd = Cmd()
