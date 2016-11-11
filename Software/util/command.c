@@ -177,3 +177,39 @@ size_t cmd_read_datafifo(uint32_t **bufio, uint32_t n)
     conv32network_endian(buf, 1);
     return 1*sizeof(uint32_t);
 }
+
+size_t cmd_write_memory_file(uint32_t **bufio, char * file_name)
+{
+    size_t idx, i;
+    uint32_t *buf;
+    size_t n;
+    buf = *bufio;
+    if(buf == NULL) {
+        buf = (uint32_t*)calloc(5000, sizeof(uint32_t));
+        if(buf == NULL)
+            return -1;
+        *bufio = buf;
+    }
+
+    FILE *fp;
+    char buffer[15];
+    fp = fopen(file_name,"r");
+    fseek(fp,SEEK_SET,0);
+    size_t word_counter=0;
+    uint32_t * jtag_buf;
+    while(1 == fread(buffer,11,1,fp)){word_counter++;}
+    jtag_buf = (uint32_t*)calloc(word_counter, sizeof(uint32_t));
+    fseek(fp,SEEK_SET,0);
+    uint32_t wd;
+    int i_con=0;
+    while(1 == fread(buffer,11,1,fp))
+    {
+      sscanf(buffer,"%x",&wd);
+      jtag_buf[i_con] = wd;
+      i_con++;
+    }
+    n = cmd_write_memory(buf, 0, jtag_buf, word_counter);
+    free(jtag_buf);
+    fclose(fp);
+    return n;
+}
