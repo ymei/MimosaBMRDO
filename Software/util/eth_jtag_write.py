@@ -9,7 +9,7 @@ s.connect((host,port))
 cmd = Cmd()
 ret = cmd.cmd_write_memory_file("S1_L2.dat")
 #ret = cmd.cmd_read_register(0)
-print [hex(ord(s)) for w in ret]
+print [hex(ord(w)) for w in ret]
 #s.send(ret)
 #data = s.recv(4)
 #print [hex(ord(s)) for w in data]

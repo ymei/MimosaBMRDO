@@ -208,7 +208,7 @@ size_t cmd_write_memory_file(uint32_t **bufio, char * file_name)
       jtag_buf[i_con] = wd;
       i_con++;
     }
-    n = cmd_write_memory(buf, 0, jtag_buf, word_counter);
+    n = cmd_write_memory(&buf, 0, jtag_buf, word_counter);
     free(jtag_buf);
     fclose(fp);
     return n;
