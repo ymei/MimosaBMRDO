@@ -11,17 +11,19 @@ from command import *
 import socket
 
 def i2c_read_ad7993(s,cmd,addr):
-    ret = cmd.cmd_write_register(0,0x0) # start -> 0
+    ret = cmd.cmd_send_pulse(0x10) # i2c reset
     s.send(ret)
-    ret = cmd.cmd_write_register(1,0x2202) # set slave address
+    #ret = cmd.cmd_write_register(0,0x0) # start -> 0
+    #s.send(ret)
+    ret = cmd.cmd_write_register(1,0x2200) # set slave address
     s.send(ret)
     ret = cmd.cmd_write_register(2,addr) # set write address and write data
     s.send(ret)
-    ret = cmd.cmd_write_register(0,0x1) # start -> 1
-    s.send(ret)
-    ret = cmd.cmd_write_register(0,0x1) # start -> 1
-    s.send(ret)
-    ret = cmd.cmd_write_register(0,0x0) # start -> 0
+    #ret = cmd.cmd_write_register(0,0x1) # start -> 1
+    #s.send(ret)
+    #ret = cmd.cmd_write_register(0,0x1) # start -> 0
+    #s.send(ret)
+    ret = cmd.cmd_send_pulse(0x20) # start
     s.send(ret)
     ret = cmd.cmd_read_status(0) # read
     s.send(ret)
@@ -36,7 +38,7 @@ if __name__ == "__main__":
     s.connect((host,port))
     #s.setblocking(1)
     cmd = Cmd()
-    data = i2c_read_ad7993(s,cmd,0x0)
+    data = i2c_read_ad7993(s,cmd,0x2)
     #ret = cmd.cmd_read_register(0)
     #print [hex(ord(w)) for w in ret]
     #s.send(ret)
