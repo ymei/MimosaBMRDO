@@ -8,14 +8,14 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host,port))
 
 cmd = Cmd()
-
+s.setblocking(1)
 ioDelayValue = 0x0
 ioDelayValue_ = 0
-sums = []
-cnt = []
-iodelay_average = []
-boundary = []
-setvalue = []
+sums = 0
+cnt = 0
+iodelay_average = 0
+boundary = 0
+setvalue = 0
 
 for i in range(32):
     # write IOdelay values
@@ -23,21 +23,20 @@ for i in range(32):
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x1)
     s.send(ret)
-    sleep(0.1)
     # send ChIP_START
     ret = cmd.cmd_send_pulse(0x2)
     s.send(ret)
-    sleep(0.3)
     # read Serdes Error
-    ret = cmd.cmd_read_status(0) # read data
+    ret = cmd.cmd_read_status(1) # read data
     s.send(ret)
     data = s.recv(4)
-    serdesErr = data
+    serdesErr = ord(data[3])
+    #print serdesErr & 0x2
 
     if ((serdesErr & 0x2) > 0):
         if (i==0):
             boundary = 1
-        if (boundary == 1) & (ioDelayValue_ > 39)):
+        if ((boundary == 1) & (ioDelayValue_ > 39)):
             sums += (ioDelayValue_-80)
         else:
             sums += ioDelayValue_
@@ -68,20 +67,19 @@ print "avg: ",hex(iodelay_average), \
 # load IOdelay values
 ret = cmd.cmd_write_register(4,setvalue)
 s.send(ret)
+time.sleep(0.1)
 ret = cmd.cmd_send_pulse(0x1)
 s.send(ret)
-sleep(0.1)
+time.sleep(0.1)
 # send ChIP_START
 ret = cmd.cmd_send_pulse(0x2)
 s.send(ret)
-sleep(0.3)
+time.sleep(0.1)
 # read Serdes Error
-ret = cmd.cmd_read_status(0) # read data
+ret = cmd.cmd_read_status(1) # read data
 s.send(ret)
 data = s.recv(4)
-serdesErr = data
-print "Error = ", hex(serdesErr)
+serdesErr = ord(data[3])
+print "Error = ", hex(serdesErr & 0x2)
 
-ftdIO.close_ftdi()
 print "Finished ..."
-exit()
