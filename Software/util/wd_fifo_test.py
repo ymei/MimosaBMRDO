@@ -30,18 +30,30 @@ data_file = data_file_name+'.sfs'
 ret = cmd.cmd_send_pulse(0x2)
 s.send(ret)
 
-counter=0
-while True :
-    ret = cmd.cmd_read_datafifo(filesize_old)
-    s.send(ret)
-    toread = filesize_old*4
-    buf = bytearray(toread)
-    view = memoryview(buf)
-    while toread:
-        nbytes = s.recv_into(view, toread)
-        view = view[nbytes:] # slicing views is cheap
-        toread -= nbytes
-    print "ok!"
+ret = cmd.cmd_read_datafifo(filesize_old)
+s.send(ret)
+toread = filesize_old*4
+buf = bytearray(b" " * toread)
+read = 0
+while(toread):
+  tmp = s.recv(toread)
+  nbytes = len(tmp)
+  buf[read:] = tmp
+  toread -= nbytes
+  read   += nbytes
+print "ok!"
+#counter=0
+#while True :
+#    ret = cmd.cmd_read_datafifo(filesize_old)
+#    s.send(ret)
+#    toread = filesize_old*4
+#    buf = bytearray(toread)
+#    view = memoryview(buf)
+#    while toread:
+#        nbytes = s.recv_into(view, toread)
+#        view = view[nbytes:] # slicing views is cheap
+#        toread -= nbytes
+#    print "ok!"
 #fout.write(data)
 #time.sleep(1)
 #fout.close
