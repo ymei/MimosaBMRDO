@@ -168,14 +168,15 @@ size_t cmd_read_datafifo(uint32_t **bufio, uint32_t n)
     uint32_t *buf;
     buf = *bufio;
     if(buf == NULL) {
-        buf = (uint32_t*)calloc(1, sizeof(uint32_t));
+        buf = (uint32_t*)calloc(2, sizeof(uint32_t));
         if(buf == NULL)
             return -1;
         *bufio = buf;
     }
-    buf[0] = (0xffff0000 & (0x0019 << 16)) | (0x0000ffff & n);
-    conv32network_endian(buf, 1);
-    return 1*sizeof(uint32_t);
+    buf[0] = (0xffff0000 & (0x001a << 16)) | (0x0000ffff & (n>>16));
+    buf[1] = (0xffff0000 & (0x0019 << 16)) | (0x0000ffff & n);
+    conv32network_endian(buf, 2);
+    return 2*sizeof(uint32_t);
 }
 
 size_t cmd_write_memory_file(uint32_t **bufio, char * file_name)
