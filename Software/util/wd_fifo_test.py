@@ -9,6 +9,7 @@ import shlex
 host = '192.168.2.3'
 port = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#s.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
 s.connect((host,port))
 
 cmd = Cmd()
@@ -28,20 +29,24 @@ data_file = data_file_name+'.sfs'
 #fout = open(data_file,"a")
 
 ret = cmd.cmd_send_pulse(0x2)
-s.send(ret)
+print [hex(ord(w)) for w in ret]
+s.sendall(ret)
+ret = ""
+#for i in range(1000):
+ret += cmd.cmd_read_datafifo(filesize_old)
+print [hex(ord(w)) for w in ret]
+s.sendall(ret)
 
-ret = cmd.cmd_read_datafifo(filesize_old)
-s.send(ret)
 toread = filesize_old*4
 buf = bytearray(b" " * toread)
 read = 0
 while(toread):
-  tmp = s.recv(toread)
-  nbytes = len(tmp)
-  buf[read:] = tmp
-  toread -= nbytes
-  read   += nbytes
-print "ok!"
+    tmp = s.recv(toread)
+    nbytes = len(tmp)
+    buf[read:] = tmp
+    toread -= nbytes
+    read   += nbytes
+    print nbytes
 #counter=0
 #while True :
 #    ret = cmd.cmd_read_datafifo(filesize_old)
@@ -58,3 +63,4 @@ print "ok!"
 #time.sleep(1)
 #fout.close
 s.close()
+
