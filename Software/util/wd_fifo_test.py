@@ -29,7 +29,9 @@ data_file = data_file_name+'.sfs'
 #fout = open(data_file,"a")
 
 ret = cmd.cmd_send_pulse(0x2)
-print [hex(ord(w)) for w in ret]
+#nbytes = len(ret)
+#wd = ret[0:nbytes]
+#print [hex(ord(w)) for w in wd]
 s.sendall(ret)
 ret = ""
 #for i in range(1000):
@@ -63,4 +65,3 @@ while(toread):
 #time.sleep(1)
 #fout.close
 s.close()
-
