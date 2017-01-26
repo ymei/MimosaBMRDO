@@ -15,17 +15,17 @@ s.connect((host,port))
 cmd = Cmd()
 
 #s.setblocking(0)
-if (len(sys.argv)==1):
-    data_file_name = 'data'
-    filesize_old = 2000000
-elif (len(sys.argv)==2):
-    data_file_name = str(sys.argv[1])
-    filesize_old = 2000000
-else :
-    data_file_name = str(sys.argv[1])
-    filesize_old = int(sys.argv[2])
-
-data_file = data_file_name+'.sfs'
+# if (len(sys.argv)==1):
+#     data_file_name = 'data'
+#     filesize_old = 2000000
+# elif (len(sys.argv)==2):
+#     data_file_name = str(sys.argv[1])
+#     filesize_old = 2000000
+# else :
+#     data_file_name = str(sys.argv[1])
+#     filesize_old = int(sys.argv[2])
+#
+# data_file = data_file_name+'.sfs'
 #fout = open(data_file,"a")
 
 ret = cmd.cmd_send_pulse(0x2)
@@ -33,22 +33,27 @@ ret = cmd.cmd_send_pulse(0x2)
 #wd = ret[0:nbytes]
 #print [hex(ord(w)) for w in wd]
 s.sendall(ret)
-ret = ""
+#ret = ""
 #for i in range(1000):
-ret += cmd.cmd_read_datafifo(filesize_old)
-print [hex(ord(w)) for w in ret]
-s.sendall(ret)
+filesize_old = 102400
+for i in range(1) :
+    ret = cmd.cmd_read_datafifo(filesize_old)
+    print [hex(ord(w)) for w in ret]
+    s.sendall(ret)
 
-toread = filesize_old*4
-buf = bytearray(b" " * toread)
-read = 0
-while(toread):
-    tmp = s.recv(toread)
-    nbytes = len(tmp)
-    buf[read:] = tmp
-    toread -= nbytes
-    read   += nbytes
-    print nbytes
+    toread = filesize_old*4
+    read = 0
+    print read
+    while(toread):
+        tmp = s.recv(toread)
+        nbytes = len(tmp)
+#        buf[read:] = tmp
+        toread -= nbytes
+        read   += nbytes
+        print read
+#    print i
+
+#     print nbytes
 #counter=0
 #while True :
 #    ret = cmd.cmd_read_datafifo(filesize_old)

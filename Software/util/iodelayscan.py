@@ -1,6 +1,7 @@
 from command import *
 import socket
 import time
+from i2c_control import *
 
 host = '192.168.2.3'
 port = 1024
@@ -8,7 +9,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host,port))
 
 cmd = Cmd()
-s.setblocking(1)
+#s.setblocking(1)
 ioDelayValue = 0x0
 ioDelayValue_ = 0
 sums = 0
@@ -16,6 +17,26 @@ cnt = 0
 iodelay_average = 0
 boundary = 0
 setvalue = 0
+
+# -- set threshold
+i2c_ltc2635_thre_vchip(s,cmd,0x5ff)
+i2c_ltc2635_thre_vmim(s,cmd,0x5ff)
+time.sleep(0.3)
+# -- reset latchup
+i2c_pcf8574_reset_latchup(s,cmd)
+time.sleep(0.3)
+i2c_pcf8574_read_latchup(s,cmd)
+time.sleep(1)
+# write to JTAG
+ret = cmd.cmd_write_register(3,0x4)
+s.sendall(ret)
+#ret = cmd.cmd_write_memory_file("/home/wangdong/mapstest/JTAG_files/S1_L2.dat")
+ret = cmd.cmd_write_memory_file("S1_L2.dat")
+s.sendall(ret)
+time.sleep(0.2)
+ret = cmd.cmd_send_pulse(0x8)
+s.sendall(ret)
+time.sleep(1)
 
 for i in range(32):
     # write IOdelay values
