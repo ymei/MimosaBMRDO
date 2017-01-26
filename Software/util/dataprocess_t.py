@@ -26,25 +26,31 @@ class Dataprocess():
         w1 = 0
         pdata_pre2 = 0
         pdata_pre1 = 0
+        counter = 0
         while self._running:
             if (not fifo.empty()) :
                 data = fifo.get()
+                counter +=1
+                print "data process : ", counter
                 for w in data :
                     w4 = w3
                     w3 = w2
                     w2 = w1
-                    w1 = ord(w)
+                    w1 = w
+                    # if (w1==0xaa)&(w2==0xaa)&(w3==0xaa)&(w4==0xaa) :
+                    #     counter +=1
+                    #     print counter
                     if self._counter != 0 :
                         if self._odd :
-                            self._pdata = ord(w)
+                            self._pdata = w
                             self._odd = False
                         else :
-                            self._pdata = self._pdata + ((ord(w)) << 8)
+                            self._pdata = self._pdata + (w << 8)
                             self._odd = True
                             pdata_pre2 = pdata_pre1
                             pdata_pre1 = self._pdata
-                    #        if self._pdata!=0 :
-                    #            print hex(self._pdata)
+                            # if self._pdata!=0 :
+                            #     print hex(self._pdata)
                             self._counter += 1
                             if self._pdata == self._tailer :
                                 if self._tsign == 0 :
@@ -53,9 +59,12 @@ class Dataprocess():
                                     self._counter = 0
                                     self._tsign = 0
                                     fcount.value += 1
-                                    if (fcount.value%1000) == 0 :
+                                    # print fcount.value
+                                    if (fcount.value%2) == 0 :
                                         fifomaps.put(maps)
                                         maps = numpy.zeros(shape=(928,960))
+                                        break
+
                             else :
                                 self._tsign = 0
                             if self._counter > 6 :

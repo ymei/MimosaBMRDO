@@ -63,7 +63,7 @@ time.sleep(0.5)
 
 # -- display processing
 maps = numpy.zeros(shape=(928,960))
-cmap = mpl.colors.ListedColormap(['blue','red'])
+cmap = mpl.colors.ListedColormap(['white','red'])
 bounds=[0,0.5,1]
 norm = mpl.colors.BoundaryNorm(bounds, cmap.N)
 pyplot.ion()
@@ -80,24 +80,20 @@ sender = SendWorker()
 recver = RecvWorker()
 t_sender = Thread(target=sender.run, args=(s,lock,sign))
 t_recver = Thread(target=recver.run, args=(s,lock,sign,q_the_pro))
-t_sender.start()
 t_recver.start()
+t_sender.start()
 
-print "OK"
-#for i in range(100):
-i = 0
-while True :
-#    i += 1
+
+for i in range(500):
+#while True :
     time.sleep(0.1)
-#    print i
     if (not q_pro_dis.empty()) :
-
         maps = q_pro_dis.get()
         img = pyplot.imshow(maps,interpolation='nearest',cmap = cmap,norm=norm)
         pyplot.pause(0.1)
 
 # -- Thread ending --
-time.sleep(5)
+#time.sleep(50)
 dataprocesser.terminate()
 t_dataprocesser.join()
 if t_sender.is_alive():

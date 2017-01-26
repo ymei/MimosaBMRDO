@@ -27,11 +27,18 @@ class RecvWorker():
     def run(self, sock, lock, sign):
         sock.settimeout(3)
         i = 0
+        buf = bytearray(10240000)
+
         while self._running:
             i += 1
             print i
             try:
-                toread = 10240*4
+                toread = 10240000
+                # view = memoryview(buf)
+                # while toread:
+                #     nbytes = sock.recv_into(view, toread)
+                #     view = view[nbytes:] # slicing views is cheap
+                #     toread -= nbytes
                 while(toread):
 #                    print sign
                     tmp = s.recv(toread)
@@ -67,7 +74,7 @@ class SendWorker():
                     print sn
                 ctmp = ctmp - sn
 
-        ret = self._cmd.cmd_read_datafifo(10240)
+        ret = self._cmd.cmd_read_datafifo(2560000)
         cnt = len(ret)
         ctmp = cnt
         while ctmp :
@@ -112,7 +119,7 @@ t_recver = Thread(target=recver.run, args=(s,lock,sign))
 t_sender.start()
 t_recver.start()
 
-time.sleep(30)
+time.sleep(10)
 if t_sender.is_alive():
     print "term send s"
     sender.terminate()
