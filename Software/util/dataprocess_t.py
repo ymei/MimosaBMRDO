@@ -16,7 +16,7 @@ class Dataprocess():
     def terminate(self):
         self._running = False
 
-    def run(self, fifo, fifomaps, fcount):
+    def run(self, fifo, fifomaps, fcount, lock):
         # -- MAPS map for display
         maps = numpy.zeros(shape=(928,960))
         fcount.value = 0
@@ -28,8 +28,11 @@ class Dataprocess():
         pdata_pre1 = 0
         counter = 0
         while self._running:
-            if (not fifo.empty()) :
-                data = fifo.get()
+            with lock :
+                check = not fifo.empty()
+            if check :
+                with lock:
+                    data = fifo.get()
                 counter +=1
                 print "data process : ", counter
                 for w in data :
@@ -61,13 +64,15 @@ class Dataprocess():
                                     fcount.value += 1
                                     # print fcount.value
                                     if (fcount.value%2) == 0 :
-                                        fifomaps.put(maps)
+                                        print "dd"
+                                        with lock:
+                                            fifomaps.put(maps)
                                         maps = numpy.zeros(shape=(928,960))
                                         break
 
                             else :
                                 self._tsign = 0
-                            if self._counter > 6 :
+                            if self._counter > 2 :
                                 if (pdata_pre2 & 0x1000) != 0 :
                                     self._row = (pdata_pre2 >>2) & 0x03ff
                                 else :

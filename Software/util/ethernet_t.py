@@ -22,10 +22,11 @@ class RecvWorker():
                     nbytes = sock.recv_into(view, toread)
                     view = view[nbytes:] # slicing views is cheap
                     toread -= nbytes
-                if (not fifo.full()) :
-                    fifo.put(buf)
-                else :
-                    print "fifo full"
+                with lock :
+                    if (not fifo.full()) :
+                        fifo.put(buf)
+                    else :
+                        print "fifo full"
                 with lock :
                     sign.value = 1
                 continue
@@ -85,7 +86,7 @@ class SendWorker():
 #            print sign.value
             if sign.value == 1 :
                 i +=1
-                print "input :", i
+#                print "input :", i
                 with lock:
                     sign.value = 0
                 ctmp = cnt
