@@ -49,7 +49,7 @@ class Disper():
                         data_dis = q_pro_dis.get()
                     img.set_data(data_dis)
                 return img
-            anim = animation.FuncAnimation(fig, update, interval=200)
+            anim = animation.FuncAnimation(fig, update, interval=100)
             pyplot.show()
 
 
@@ -94,12 +94,9 @@ s.sendall(ret)
 time.sleep(0.5)
 
 # -- disp data take processing
-# disper = Disper()
-# t_disper = Process(target=disper.run, args=(q_pro_dis,lock))
-# t_disper.start()
-# print "ok"
-# time.sleep(20)
-# print "test"
+disper = Disper()
+t_disper = Process(target=disper.run, args=(q_pro_dis,lock))
+t_disper.start()
 # -- data processing Thread
 dataprocesser = Dataprocess()
 t_dataprocesser = Process(target=dataprocesser.run, args=(q_the_pro,q_pro_dis,fcount,lock))
@@ -112,9 +109,6 @@ t_recver = Process(target=recver.run, args=(s,lock,sign,q_the_pro))
 t_recver.start()
 t_sender.start()
 
-disper = Disper()
-disper.run(q_pro_dis, lock)
-
 # for i in range(600):
 # #while True :
 #     time.sleep(0.1)
@@ -124,7 +118,7 @@ disper.run(q_pro_dis, lock)
 #         # pyplot.pause(0.1)
 
 # -- Thread ending --
-time.sleep(5)
+time.sleep(30)
 if t_dataprocesser.is_alive():
     dataprocesser.terminate()
     t_dataprocesser.join()

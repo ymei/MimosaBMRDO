@@ -3,7 +3,7 @@ import socket
 import time
 import select
 
-datanum = 20000000
+datanum = 2000000
 class RecvWorker():
     def __init__(self):
         self._running = True
