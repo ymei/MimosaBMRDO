@@ -22,52 +22,42 @@ import numpy
 from matplotlib import pyplot
 import matplotlib as mpl
 import matplotlib.animation as animation
+from matplotlib.colors import LogNorm
 
 class Disper():
-    def __init__(self):
-        self._running = True
-
-    def terminate(self):
-        self._running = False
-
-    def run(self, q_pro_dis, lock):
-        while self._running :
+    def run(self, q_pro_dis, lock, stop):
+        mapsbyte = np.ctypeslib.as_array(q_pro_dis.get_obj())
+        mapsdis = mapsbyte.reshape(928,960)
+        maps = numpy.zeros(shape=(928,960))
+        while stop.value==1 :
             # -- display processing
             fig = pyplot.figure()
-            maps = numpy.zeros(shape=(928,960))
-            cmap = mpl.colors.ListedColormap(['white','red'])
-            bounds=[0,0.5,1]
-            norm = mpl.colors.BoundaryNorm(bounds, cmap.N)
-            img = pyplot.imshow(maps,interpolation='nearest',cmap = cmap,norm=norm)
-            pyplot.colorbar(img,cmap=cmap,norm=norm,boundaries=bounds,ticks=[0,0.5,1])
+            img = pyplot.imshow(maps, cmap='hot',norm=LogNorm(vmin=0.01, vmax=1000))
+            pyplot.colorbar(img, orientation='vertical')
             def update(*args) :
                 global q_pro_dis
                 with lock :
-                    check = not q_pro_dis.empty()
-                if check :
-                    with lock :
-                        data_dis = q_pro_dis.get()
-                    img.set_data(data_dis)
+                    img.set_data(mapsdis)
                 return img
-            anim = animation.FuncAnimation(fig, update, interval=100)
+            anim = animation.FuncAnimation(fig, update, interval=300)
             pyplot.show()
-
-
-
-# -- define fifo --
-# -- fifo between ethernet readout to dataprocessing unit
-q_the_pro = Queue()
-# -- fifo between dataprocessing unit to display unit
-q_pro_dis = Queue()
+        print "display terminate"
 
 # -- ethernet processing thread
 lock = Lock()
-sign = Value('d', 1)
+sign = Value('i', 1)
 s = socket.socket()
 host = '192.168.2.3'
 port = 1024
 s.connect((host,port))
 
+datanum = 2000000
+buffernum = 128
+data = [Array('B', datanum*4)]*buffernum
+q_pro_dis = Array('H', 928*960)
+num_now=Value('i',0)
+num_read=Value('i',0)
+pulse=Value('i',0)
 # -- MAPS board initial
 cmd = Cmd()
 # -- set threshold
@@ -91,19 +81,23 @@ s.sendall(ret)
 time.sleep(0.5)
 
 # -- disp data take processing
+stopdis=Value('i',1)
 disper = Disper()
-t_disper = Process(target=disper.run, args=(q_pro_dis,lock))
+t_disper = Process(target=disper.run, args=(q_pro_dis,lock,stopdis))
 t_disper.start()
 # -- start ethernet thread
+stoprecv=Value('i',1)
+stopsend=Value('i',1)
 sender = SendWorker()
 recver = RecvWorker()
-t_sender = Process(target=sender.run, args=(s,lock,sign))
-t_recver = Process(target=recver.run, args=(s,lock,sign))
+t_sender = Process(target=sender.run, args=(s, lock, sign, stopsend))
+t_recver = Process(target=recver.run, args=(s, lock, sign, data, num_now, stoprecv))
 t_recver.start()
 t_sender.start()
 # -- data processing Thread
+stopproc=Value('i',1)
 dataprocesser = Dataprocess()
-t_dataprocesser = Process(target=dataprocesser.run, args=(q_pro_dis,lock,recver))
+t_dataprocesser = Process(target=dataprocesser.run, args=(q_pro_dis, lock, data, num_now, stopproc))
 t_dataprocesser.start()
 
 # for i in range(600):
@@ -115,20 +109,22 @@ t_dataprocesser.start()
 #         # pyplot.pause(0.1)
 
 # -- Thread ending --
-time.sleep(30)
+time.sleep(1000)
+
 if t_dataprocesser.is_alive():
-    dataprocesser.terminate()
+    stopproc.value = 0
     t_dataprocesser.join()
 if t_sender.is_alive():
-    sender.terminate()
-    time.sleep(1)
+    stopsend.value = 0
+    time.sleep(0.1)
     t_sender.join()
-time.sleep(4)
+time.sleep(2)
 if t_recver.is_alive():
-    recver.terminate()
-    time.sleep(1)
+    stoprecv.value = 0
+    time.sleep(0.1)
     t_recver.join()
 if t_disper.is_alive():
-    disper.terminate()
+    stopdis.value = 0
     t_disper.join()
+
 s.close()
