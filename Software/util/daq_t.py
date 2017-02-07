@@ -44,58 +44,59 @@ class RecvWorker():
 class SendWorker():
     def __init__(self):
         self._cmd = Cmd()
-    def run(self, sock, lock, sign, stop):
+    def run(self, sock, lock, sign, fifo, stop):
         ret = self._cmd.cmd_read_datafifo(datanum)
-        cnt = len(ret)
-        ctmp = cnt
-        while ctmp :
-            readable , writable , exceptional = select.select([],[sock],[],2)
-            for s in writable :
-                sdata = ret[cnt-ctmp:cnt]
-                sn = sock.send(sdata)
-                if sn != cnt :
-                    print sn
-                ctmp = ctmp - sn
-
+        with lock :
+            fifo.put(ret)
         ret = self._cmd.cmd_send_pulse(0x2)
-        cnt = len(ret)
-        ctmp = cnt
-        while ctmp :
-            readable , writable , exceptional = select.select([],[sock],[],2)
-            for s in writable :
-                sdata = ret[cnt-ctmp:cnt]
-                sn = sock.send(sdata)
-                if sn != cnt :
-                    print sn
-                ctmp = ctmp - sn
-
+        with lock :
+            fifo.put(ret)
         ret = self._cmd.cmd_read_datafifo(datanum)
-        cnt = len(ret)
-        ctmp = cnt
-        while ctmp :
-            readable , writable , exceptional = select.select([],[sock],[],2)
-            for s in writable :
-                sdata = ret[cnt-ctmp:cnt]
-                sn = sock.send(sdata)
-                if sn != cnt :
-                    print sn
-                ctmp = ctmp - sn
-        i = 0
+        with lock :
+            fifo.put(ret)
+
         while stop.value == 1:
-#        for i in range(3000):
-#            print sign.value
             if sign.value == 1 :
-                i +=1
-#                print "input :", i
+                ret = self._cmd.cmd_read_datafifo(datanum)
+                with lock :
+                    fifo.put(ret)
                 with lock:
                     sign.value = 0
-                ctmp = cnt
-                while ctmp :
-                    readable , writable , exceptional = select.select([],[sock],[],2)
-                    for s in writable :
-                        sdata = ret[cnt-ctmp:cnt]
-                        sn = sock.send(sdata)
-                        if sn != cnt :
-                            print sn
-                        ctmp = ctmp - sn
+            while not fifo.empty() :
+                with lock:
+                    sdata = fifo.get()
+                sock.sendall(sdata)
         print "send terminate"
+
+class CmdServer():
+    def __init__(self):
+        self._cmd = Cmd()
+    def run(self, lock, fifo, stop):
+        s = socket.socket()
+        host = '127.0.0.1'
+        port = 1234
+        s.bind((host,port))
+
+        while stop.value == 1:
+            try :
+                s.settimeout(0.2)
+                s.listen(1)
+                c,addr = s.accept()
+                while stop.value == 1:
+                    edata = ""
+                    num = 0
+                    while (num%4 != 0) or (num == 0) :
+                        tdata = c.recv(1024)
+                        if not tdata :
+                            break
+                        counter = len(tdata)
+                        num += counter
+                        edata += tdata
+                    if not tdata :
+                        break
+                    fifo.put(edata)
+                c.close()
+            except socket.timeout :
+                continue
+        s.close()
+        print "CmdServer terminate"

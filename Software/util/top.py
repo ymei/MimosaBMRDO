@@ -29,17 +29,17 @@ class Disper():
         mapsbyte = np.ctypeslib.as_array(q_pro_dis.get_obj())
         mapsdis = mapsbyte.reshape(928,960)
         maps = numpy.zeros(shape=(928,960))
+        fig = pyplot.figure()
+        img = pyplot.imshow(maps, cmap='viridis',norm=LogNorm(vmin=1, vmax=100))
+        pyplot.colorbar(img, orientation='vertical')
         while stop.value==1 :
             # -- display processing
-            fig = pyplot.figure()
-            img = pyplot.imshow(maps, cmap='hot',norm=LogNorm(vmin=0.01, vmax=1000))
-            pyplot.colorbar(img, orientation='vertical')
             def update(*args) :
                 global q_pro_dis
                 with lock :
                     img.set_data(mapsdis)
                 return img
-            anim = animation.FuncAnimation(fig, update, interval=300)
+            anim = animation.FuncAnimation(fig, update, interval=50)
             pyplot.show()
         print "display terminate"
 
@@ -51,6 +51,7 @@ host = '192.168.2.3'
 port = 1024
 s.connect((host,port))
 
+cmdfifo = Queue()
 datanum = 2000000
 buffernum = 128
 data = [Array('B', datanum*4)]*buffernum
@@ -88,12 +89,16 @@ t_disper.start()
 # -- start ethernet thread
 stoprecv=Value('i',1)
 stopsend=Value('i',1)
+stopserver=Value('i',1)
 sender = SendWorker()
 recver = RecvWorker()
-t_sender = Process(target=sender.run, args=(s, lock, sign, stopsend))
+server = CmdServer()
+t_sender = Process(target=sender.run, args=(s, lock, sign, cmdfifo, stopsend))
 t_recver = Process(target=recver.run, args=(s, lock, sign, data, num_now, stoprecv))
+t_server = Process(target=server.run, args=(lock, cmdfifo, stopserver))
 t_recver.start()
 t_sender.start()
+t_server.start()
 # -- data processing Thread
 stopproc=Value('i',1)
 dataprocesser = Dataprocess()
@@ -109,19 +114,20 @@ t_dataprocesser.start()
 #         # pyplot.pause(0.1)
 
 # -- Thread ending --
-time.sleep(1000)
+time.sleep(300)
 
 if t_dataprocesser.is_alive():
     stopproc.value = 0
     t_dataprocesser.join()
+if t_server.is_alive():
+    stopserver.value = 0
+    t_server.join()
 if t_sender.is_alive():
     stopsend.value = 0
-    time.sleep(0.1)
     t_sender.join()
 time.sleep(2)
 if t_recver.is_alive():
     stoprecv.value = 0
-    time.sleep(0.1)
     t_recver.join()
 if t_disper.is_alive():
     stopdis.value = 0

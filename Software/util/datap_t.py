@@ -29,6 +29,7 @@ class Dataprocess():
         mapsbyte = np.ctypeslib.as_array(fifomaps.get_obj())
         q_pro_dis = mapsbyte.reshape(928,960)
         fcounter = 0
+        muskmap = np.loadtxt('wdtest.txt')
         while stop.value==1 :
             with lock :
                 num = num_now.value
@@ -57,10 +58,14 @@ class Dataprocess():
                                 self._counter = 0
                                 self._tsign = 0
                                 fcounter +=1
-                                if fcounter == 10 :
+                                if fcounter == 100 :
                                     with lock:
                                         for i in range(len(maps)) :
-                                            q_pro_dis[i] = maps[i]
+                                            for j in range(len(maps[i])) :
+                                                if muskmap[i][j] == 0 :
+                                                    q_pro_dis[i][j] = maps[i][j]
+                                                else :
+                                                    q_pro_dis[i][j] = 0
                                     maps = numpy.zeros(shape=(928,960))
                                     break
                         else :
@@ -80,5 +85,5 @@ class Dataprocess():
                     self._odd = True
                     if (w1==0xaa)&(w2==0xaa)&(w3==0xaa)&(w4==0xaa) :
                         self._counter = 1
-            time.sleep(0.5)
+            # time.sleep(0.2)
         print "data process terminate"
