@@ -6,17 +6,17 @@ import multiprocessing
 from multiprocessing import Value, Array
 import numpy as np
 
-datanum = 2000000
+datanum = 200000
 buffernum = 128
 class RecvWorker():
     # def __init__(self):
     def run(self, sock, lock, sign, data, num_now, stop):
-        sock.settimeout(3)
         # self._shared_array_base = multiprocessing.Array('B', datanum*4*buffernum)
         view_list = []
         for i in range(buffernum) :
             view_list.append( memoryview(np.ctypeslib.as_array(data[i].get_obj())) )
         while stop.value==1 :
+            sock.settimeout(10)
             try:
                 with lock:
                     if num_now.value == (buffernum-1) :
@@ -54,7 +54,6 @@ class SendWorker():
         ret = self._cmd.cmd_read_datafifo(datanum)
         with lock :
             fifo.put(ret)
-
         while stop.value == 1:
             if sign.value == 1 :
                 ret = self._cmd.cmd_read_datafifo(datanum)

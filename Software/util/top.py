@@ -4,6 +4,7 @@ Created on Wed Jan 20 2017
 This the main python script for datataking and processing
 @author: Dong Wang
 """
+from storage_t import *
 from daq_t import *
 from datap_t import *
 from command import *
@@ -44,7 +45,8 @@ class Disper():
         print "display terminate"
 
 # -- ethernet processing thread
-lock = Lock()
+lock_dis = Lock()
+lock_value = Lock()
 sign = Value('i', 1)
 s = socket.socket()
 host = '192.168.2.3'
@@ -52,7 +54,7 @@ port = 1024
 s.connect((host,port))
 
 cmdfifo = Queue()
-datanum = 2000000
+datanum = 200000
 buffernum = 128
 data = [Array('B', datanum*4)]*buffernum
 q_pro_dis = Array('H', 928*960)
@@ -84,7 +86,7 @@ time.sleep(0.5)
 # -- disp data take processing
 stopdis=Value('i',1)
 disper = Disper()
-t_disper = Process(target=disper.run, args=(q_pro_dis,lock,stopdis))
+t_disper = Process(target=disper.run, args=(q_pro_dis,lock_dis,stopdis))
 t_disper.start()
 # -- start ethernet thread
 stoprecv=Value('i',1)
@@ -93,29 +95,31 @@ stopserver=Value('i',1)
 sender = SendWorker()
 recver = RecvWorker()
 server = CmdServer()
-t_sender = Process(target=sender.run, args=(s, lock, sign, cmdfifo, stopsend))
-t_recver = Process(target=recver.run, args=(s, lock, sign, data, num_now, stoprecv))
-t_server = Process(target=server.run, args=(lock, cmdfifo, stopserver))
+t_sender = Process(target=sender.run, args=(s, lock_value, sign, cmdfifo, stopsend))
+t_recver = Process(target=recver.run, args=(s, lock_value, sign, data, num_now, stoprecv))
+t_server = Process(target=server.run, args=(lock_value, cmdfifo, stopserver))
 t_recver.start()
 t_sender.start()
 t_server.start()
 # -- data processing Thread
 stopproc=Value('i',1)
 dataprocesser = Dataprocess()
-t_dataprocesser = Process(target=dataprocesser.run, args=(q_pro_dis, lock, data, num_now, stopproc))
+t_dataprocesser = Process(target=dataprocesser.run, args=(q_pro_dis, lock_value, lock_dis, data, num_now, stopproc))
 t_dataprocesser.start()
+# -- storage processing
+stopstore=Value('i',1)
+storage = Storage()
+t_storage = Process(target=storage.run, args=(lock_value, data, num_now, stopstore))
+t_storage.start()
 
-# for i in range(600):
-# #while True :
-#     time.sleep(0.1)
-#     if (not q_pro_dis.empty()) :
-#         maps = q_pro_dis.get()
-#         # img = pyplot.imshow(maps,interpolation='nearest',cmap = cmap,norm=norm)
-#         # pyplot.pause(0.1)
 
 # -- Thread ending --
-time.sleep(300)
+for tt in range(6):
+    time.sleep(3600)
 
+if t_storage.is_alive():
+    stopstore.value = 0
+    t_storage.join()
 if t_dataprocesser.is_alive():
     stopproc.value = 0
     t_dataprocesser.join()
@@ -125,7 +129,7 @@ if t_server.is_alive():
 if t_sender.is_alive():
     stopsend.value = 0
     t_sender.join()
-time.sleep(2)
+time.sleep(6)
 if t_recver.is_alive():
     stoprecv.value = 0
     t_recver.join()

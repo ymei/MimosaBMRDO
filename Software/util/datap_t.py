@@ -2,6 +2,7 @@ import numpy
 import time
 from multiprocessing import Value, Array
 import numpy as np
+import copy
 
 class Dataprocess():
     def __init__(self):
@@ -17,7 +18,7 @@ class Dataprocess():
         self._pdata = 0x0000
         self._odd = False
 
-    def run(self, fifomaps, lock, data, num_now, stop):
+    def run(self, fifomaps, lock, lock_dis, data, num_now, stop):
         # -- MAPS map for display
         maps = numpy.zeros(shape=(928,960))
         w4 = 0
@@ -33,8 +34,7 @@ class Dataprocess():
         while stop.value==1 :
             with lock :
                 num = num_now.value
-            with lock :
-                data_tmp = data[num]
+            data_tmp = np.copy(data[(num+100)%128])
             fcounter = 0
             for w in data_tmp :
                 w4 = w3
@@ -58,14 +58,15 @@ class Dataprocess():
                                 self._counter = 0
                                 self._tsign = 0
                                 fcounter +=1
-                                if fcounter == 100 :
-                                    with lock:
+                                if fcounter == 10 :
+                                    with lock_dis:
                                         for i in range(len(maps)) :
                                             for j in range(len(maps[i])) :
                                                 if muskmap[i][j] == 0 :
                                                     q_pro_dis[i][j] = maps[i][j]
                                                 else :
                                                     q_pro_dis[i][j] = 0
+                                    # q_pro_dis[:] = np.copy(maps)
                                     maps = numpy.zeros(shape=(928,960))
                                     break
                         else :
@@ -85,5 +86,5 @@ class Dataprocess():
                     self._odd = True
                     if (w1==0xaa)&(w2==0xaa)&(w3==0xaa)&(w4==0xaa) :
                         self._counter = 1
-            # time.sleep(0.2)
+            # time.sleep(0.3)
         print "data process terminate"
