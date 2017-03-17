@@ -13,7 +13,7 @@ def i2c_ad7993_initial(s,cmd): # initial AD7993
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- set cycle timer reg to diable mode 3
     ret = cmd.cmd_write_register(0,0x2201) # set slave address,mode,wr
     s.send(ret)
@@ -21,7 +21,7 @@ def i2c_ad7993_initial(s,cmd): # initial AD7993
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     return 0
 
 def i2c_ad7993_chipvdd_r(s,cmd): # read VDD for chips --channel 1
@@ -32,7 +32,7 @@ def i2c_ad7993_chipvdd_r(s,cmd): # read VDD for chips --channel 1
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- read conversion result reg
     ret = cmd.cmd_write_register(0,0x2205) # set slave address,mode,wr
     s.send(ret)
@@ -40,12 +40,12 @@ def i2c_ad7993_chipvdd_r(s,cmd): # read VDD for chips --channel 1
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_read_status(0) # read data
     s.send(ret)
     data = s.recv(4)
     print [hex(ord(w)) for w in data]
-    time.sleep(0.001)
+    time.sleep(0.2)
     return data
 
 def i2c_ad7993_mimosavdd_r(s,cmd): # read VDD for chips --channel 2
@@ -56,7 +56,7 @@ def i2c_ad7993_mimosavdd_r(s,cmd): # read VDD for chips --channel 2
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- read conversion result reg
     ret = cmd.cmd_write_register(0,0x2205) # set slave address,mode,wr
     s.send(ret)
@@ -64,12 +64,12 @@ def i2c_ad7993_mimosavdd_r(s,cmd): # read VDD for chips --channel 2
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_read_status(0) # read data
     s.send(ret)
     data = s.recv(4)
     print [hex(ord(w)) for w in data]
-    time.sleep(0.001)
+    time.sleep(0.2)
     return data
 
 def i2c_ad7993_ichip_r(s,cmd): # read VDD for chips --channel 3
@@ -80,7 +80,7 @@ def i2c_ad7993_ichip_r(s,cmd): # read VDD for chips --channel 3
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- read conversion result reg
     ret = cmd.cmd_write_register(0,0x2205) # set slave address,mode,wr
     s.send(ret)
@@ -88,12 +88,12 @@ def i2c_ad7993_ichip_r(s,cmd): # read VDD for chips --channel 3
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_read_status(0) # read data
     s.send(ret)
     data = s.recv(4)
     print [hex(ord(w)) for w in data]
-    time.sleep(0.001)
+    time.sleep(0.2)
     return data
 
 def i2c_ad7993_imim_r(s,cmd): # read VDD for chips --channel 4
@@ -104,7 +104,7 @@ def i2c_ad7993_imim_r(s,cmd): # read VDD for chips --channel 4
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- read conversion result reg
     ret = cmd.cmd_write_register(0,0x2205) # set slave address,mode,wr
     s.send(ret)
@@ -112,12 +112,12 @@ def i2c_ad7993_imim_r(s,cmd): # read VDD for chips --channel 4
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_read_status(0) # read data
     s.send(ret)
     data = s.recv(4)
     print [hex(ord(w)) for w in data]
-    time.sleep(0.001)
+    time.sleep(0.2)
     return data
 
 ###################################################
@@ -131,7 +131,7 @@ def i2c_ad7418_initial(s,cmd): # initial AD7418
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- set configration reg2 to run on sample by soft
     ret = cmd.cmd_write_register(0,0x2801) # set slave address,mode,wr
     s.send(ret)
@@ -139,7 +139,7 @@ def i2c_ad7418_initial(s,cmd): # initial AD7418
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     return 0
 
 def i2c_ad7418_itself_tmp_r(s,cmd): # read tmperature from MIMOSA chips
@@ -157,7 +157,7 @@ def i2c_ad7418_itself_tmp_r(s,cmd): # read tmperature from MIMOSA chips
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- read conversion result reg
     ret = cmd.cmd_write_register(0,0x2800) # set slave address,mode,wr
     s.send(ret)
@@ -165,19 +165,19 @@ def i2c_ad7418_itself_tmp_r(s,cmd): # read tmperature from MIMOSA chips
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_write_register(0,0x2805) # set slave address,mode,wr
     s.send(ret)
     ret = cmd.cmd_write_register(1,0x0000) # set write address and write data0
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_read_status(0) # read data
     s.send(ret)
     data = s.recv(4)
     print [hex(ord(w)) for w in data]
-    time.sleep(0.001)
+    time.sleep(0.2)
     return data
 
 def i2c_ad7418_mimosa_tmp_r(s,cmd): # read tmperature from ad7418 itself
@@ -188,14 +188,14 @@ def i2c_ad7418_mimosa_tmp_r(s,cmd): # read tmperature from ad7418 itself
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_write_register(0,0x2801) # set slave address,mode,wr
     s.send(ret)
     ret = cmd.cmd_write_register(1,0x8101) # set write address and write data0
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- read conversion result reg
     ret = cmd.cmd_write_register(0,0x2800) # set slave address,mode,wr
     s.send(ret)
@@ -203,19 +203,19 @@ def i2c_ad7418_mimosa_tmp_r(s,cmd): # read tmperature from ad7418 itself
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_write_register(0,0x2805) # set slave address,mode,wr
     s.send(ret)
     ret = cmd.cmd_write_register(1,0x0000) # set write address and write data0
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_read_status(0) # read data
     s.send(ret)
     data = s.recv(4)
     print [hex(ord(w)) for w in data]
-    time.sleep(0.001)
+    time.sleep(0.2)
     return data
 
 ###################################################
@@ -230,7 +230,7 @@ def i2c_ad5252_pot_chip(s,cmd,data): # set pot for chip power
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- restore EEMEM to RDC
     ret = cmd.cmd_write_register(0,0x2C00) # set slave address,mode,wr
     s.send(ret)
@@ -238,7 +238,7 @@ def i2c_ad5252_pot_chip(s,cmd,data): # set pot for chip power
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- set NOP command
     ret = cmd.cmd_write_register(0,0x2C00) # set slave address,mode,wr
     s.send(ret)
@@ -246,7 +246,7 @@ def i2c_ad5252_pot_chip(s,cmd,data): # set pot for chip power
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     return 0
 
 def i2c_ad5252_pot_mimosa(s,cmd,data): # set pot for mimosa power
@@ -258,7 +258,7 @@ def i2c_ad5252_pot_mimosa(s,cmd,data): # set pot for mimosa power
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- restore EEMEM to RDC
     ret = cmd.cmd_write_register(0,0x2C00) # set slave address,mode,wr
     s.send(ret)
@@ -266,7 +266,7 @@ def i2c_ad5252_pot_mimosa(s,cmd,data): # set pot for mimosa power
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- set NOP command
     ret = cmd.cmd_write_register(0,0x2C00) # set slave address,mode,wr
     s.send(ret)
@@ -274,7 +274,7 @@ def i2c_ad5252_pot_mimosa(s,cmd,data): # set pot for mimosa power
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     return 0
 
 ###################################################
@@ -291,7 +291,7 @@ def i2c_ltc2635_thre_vchip(s,cmd,data): # set DAC out for threshold of thre_vchi
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     return 0
 
 def i2c_ltc2635_thre_vmim(s,cmd,data): # set DAC out for threshold of thre_vmim
@@ -305,7 +305,7 @@ def i2c_ltc2635_thre_vmim(s,cmd,data): # set DAC out for threshold of thre_vmim
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     return 0
 
 ###################################################
@@ -319,16 +319,16 @@ def i2c_pcf8574_reset_latchup(s,cmd): # reset latchup of PCF8574
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
 # -- set LV_vchip and LV_vmim back to 1
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_write_register(0,0x2100) # set slave address,mode,wr
     s.send(ret)
     ret = cmd.cmd_write_register(1,0x00ff) # set write address and write data0
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     return 0
 
 def i2c_pcf8574_read_latchup(s,cmd): # reset latchup of PCF8574
@@ -338,12 +338,12 @@ def i2c_pcf8574_read_latchup(s,cmd): # reset latchup of PCF8574
     s.send(ret)
     ret = cmd.cmd_send_pulse(0x10) # start
     s.send(ret)
-    time.sleep(0.001)
+    time.sleep(0.2)
     ret = cmd.cmd_read_status(0) # read data
     s.send(ret)
     data = s.recv(4)
     print [hex(ord(w)) for w in data]
-    time.sleep(0.001)
+    time.sleep(0.2)
     return data
 
 if __name__ == "__main__":

@@ -214,3 +214,121 @@ size_t cmd_write_memory_file(uint32_t **bufio, char * file_name)
     fclose(fp);
     return n;
 }
+
+void wdtest(int *musk)
+{
+    printf("hello!! ");
+    for(int l=0; l<928; l++)
+      for(int m=0; m<960; m++)
+      {
+        if(musk[l*960+m] != 0)
+          // maps[l*960+m] = maps_temp[l*960+m];
+          // {maps[l*960+m] = 1;
+            printf("%d,%d  ",l,m);
+          // }
+        // else
+          // {maps[l*960+m] = 0;}
+      }
+}
+
+void data_cal(unsigned char *databuf, unsigned short *maps, unsigned short *maps_temp, int *musk,int *fcounter, int framadd)
+{
+    unsigned char *buf;
+    buf = databuf;
+
+    int datanum = 200000;
+    unsigned char w4 = 0;
+    unsigned char w3 = 0;
+    unsigned char w2 = 0;
+    unsigned char w1 = 0;
+    unsigned char  w = 0;
+    unsigned short pdata_pre2 = 0;
+    unsigned short pdata_pre1 = 0;
+    int counter = 0;
+    int odd = 0;
+    unsigned short header = 0xaaaa;
+    unsigned short tailer = 0x5678;
+    int row = 0;
+    int column = 0;
+    int code = 0;
+    int hsign = 0;
+    int tsign = 0;
+    int i = 0;
+    unsigned short pdata = 0x0000;
+
+    for(i = 0; i<datanum*4; i++)
+    {
+      w  = buf[i];
+      w4 = w3;
+      w3 = w2;
+      w2 = w1;
+      w1 = w;
+      if (counter != 0)
+      {
+        if (odd==1)
+        {
+            pdata = w;
+            odd = 0;
+        }
+        else
+        {
+            pdata = pdata + (w << 8);
+            odd = 1;
+            pdata_pre2 = pdata_pre1;
+            pdata_pre1 = pdata;
+            counter += 1;
+            if (pdata == tailer)
+            {
+                if (tsign == 0)
+                  tsign = 1;
+                else
+                {
+                    counter = 0;
+                    tsign = 0;
+                    *fcounter +=1;
+                    if (*fcounter == framadd)
+                    {
+                        *fcounter = 0;
+                        for(int l=0; l<928; l++)
+                          for(int m=0; m<960; m++)
+                          {
+                            // if(maps_temp[l*960+m] < 4998)
+                              maps[l*960+m] = maps_temp[l*960+m];
+                            // else
+                              // maps[l*960+m] = 0;
+                            maps_temp[l*960+m] = 0;
+                          }
+                    }
+                }
+            }
+            else
+            {
+                tsign = 0;
+                // if (counter > 2)   // -- without counter
+                if (counter > 6)  // -- withcounter two
+                {
+                  if ((pdata_pre2 & 0x1000) != 0)
+                      row = (pdata_pre2 >>2) & 0x03ff;
+                  else
+                  {
+                      column = (pdata_pre2 >>2) & 0x03ff;
+                      code = pdata_pre2 & 0x0003;
+                      if(((column+code)<960)&(row<928))
+                      {
+                          for (int j = 0; j<(code+1); j++)
+                            maps_temp[row*960+column+j] += 1;
+                      }
+                  }
+                }
+            }
+        }
+      }
+      else
+      {
+        odd = 1;
+        if ((w1==0xaa)&(w2==0xaa)&(w3==0xaa)&(w4==0xaa))
+          counter = 1;
+      }
+    }
+    return 1;
+}

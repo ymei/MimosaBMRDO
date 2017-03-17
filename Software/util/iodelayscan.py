@@ -2,6 +2,7 @@ from command import *
 import socket
 import time
 from i2c_control import *
+import numpy as np
 
 host = '192.168.2.3'
 port = 1024
@@ -27,6 +28,7 @@ i2c_pcf8574_reset_latchup(s,cmd)
 time.sleep(0.3)
 i2c_pcf8574_read_latchup(s,cmd)
 time.sleep(1)
+
 # write to JTAG
 ret = cmd.cmd_write_register(3,0x4)
 s.sendall(ret)
@@ -85,22 +87,28 @@ elif(setvalue > 31):
 print "avg: ",hex(iodelay_average), \
     "opt: ",hex(setvalue)
 
-# load IOdelay values
-ret = cmd.cmd_write_register(4,setvalue)
-s.send(ret)
-time.sleep(0.1)
-ret = cmd.cmd_send_pulse(0x1)
-s.send(ret)
-time.sleep(0.1)
-# send ChIP_START
-ret = cmd.cmd_send_pulse(0x2)
-s.send(ret)
-time.sleep(0.1)
-# read Serdes Error
-ret = cmd.cmd_read_status(1) # read data
-s.send(ret)
-data = s.recv(4)
-serdesErr = ord(data[3])
-print "Error = ", hex(serdesErr & 0x2)
+for i in range(32):
+    # load IOdelay values
+    setvalue = i
+    wdtest = setvalue + (setvalue <<8)
+    print hex(wdtest)
+    # np.savetxt('./iodelay.txt',wdtest)
+
+    ret = cmd.cmd_write_register(4,wdtest)
+    s.send(ret)
+    time.sleep(0.1)
+    ret = cmd.cmd_send_pulse(0x1)
+    s.send(ret)
+    time.sleep(0.1)
+    # send ChIP_START
+    ret = cmd.cmd_send_pulse(0x2)
+    s.send(ret)
+    time.sleep(0.1)
+    # read Serdes Error
+    ret = cmd.cmd_read_status(1) # read data
+    s.send(ret)
+    data = s.recv(4)
+    serdesErr = ord(data[3])
+    print "Error = ", hex(serdesErr & 0x2)
 
 print "Finished ..."

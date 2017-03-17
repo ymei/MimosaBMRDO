@@ -10,29 +10,34 @@ datanum = 200000
 buffernum = 128
 class RecvWorker():
     # def __init__(self):
-    def run(self, sock, lock, sign, data, num_now, stop):
+    def run(self, sock, lock, lock_data, sign, data, num_now, stop):
         # self._shared_array_base = multiprocessing.Array('B', datanum*4*buffernum)
         view_list = []
         for i in range(buffernum) :
             view_list.append( memoryview(np.ctypeslib.as_array(data[i].get_obj())) )
+        nseq = 0
         while stop.value==1 :
-            sock.settimeout(10)
+            sock.settimeout(5)
             try:
-                with lock:
-                    if num_now.value == (buffernum-1) :
-                        num_now.value = 0
-                        nseq = num_now.value
-                    else :
-                        num_now.value += 1
-                        nseq = num_now.value
                 toread = datanum*4
                 view_tmp = view_list[nseq]
                 while toread:
+                    # with lock_data :
                     nbytes = sock.recv_into(view_tmp, toread)
                     view_tmp = view_tmp[nbytes:] # slicing views is cheap
                     toread -= nbytes
+
+                if nseq == (buffernum-1) :
+                    nseq = 0
+                else :
+                    nseq += 1
+
+                with lock:
+                    num_now.value = nseq
+
                 with lock :
                     sign.value = 1
+
                 continue
             except socket.timeout:
                 print("RecvWorker:socket timeout")
@@ -45,14 +50,15 @@ class SendWorker():
     def __init__(self):
         self._cmd = Cmd()
     def run(self, sock, lock, sign, fifo, stop):
-        ret = self._cmd.cmd_read_datafifo(datanum)
-        with lock :
-            fifo.put(ret)
+        # ret = self._cmd.cmd_read_datafifo(datanum)
+        # with lock :
+        #     fifo.put(ret)
         ret = self._cmd.cmd_send_pulse(0x2)
         with lock :
             fifo.put(ret)
         ret = self._cmd.cmd_read_datafifo(datanum)
         with lock :
+            fifo.put(ret)
             fifo.put(ret)
         while stop.value == 1:
             if sign.value == 1 :
@@ -64,6 +70,7 @@ class SendWorker():
             while not fifo.empty() :
                 with lock:
                     sdata = fifo.get()
+                # print [hex(ord(w)) for w in sdata]
                 sock.sendall(sdata)
         print "send terminate"
 

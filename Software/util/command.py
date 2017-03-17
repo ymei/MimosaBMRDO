@@ -1,5 +1,18 @@
 from ctypes import *
 
+def data_calculate(addr_data, addr_mapsbyte,addr_mapsbyte_temp,musk,fcounter,framadd):
+    soname = "./build/command.so"
+    cmdGen = cdll.LoadLibrary(soname)
+    cfun = cmdGen.data_cal
+    # buf = addressof(databuf)
+    cfun(c_char_p(addr_data),c_void_p(addr_mapsbyte),c_void_p(addr_mapsbyte_temp),c_void_p(musk),pointer(fcounter),framadd)
+
+def wdtest(musk):
+    soname = "./build/command.so"
+    cmdGen = cdll.LoadLibrary(soname)
+    cfun = cmdGen.wdtest
+    # buf = addressof(databuf)
+    cfun(c_void_p(musk))
 
 class Cmd:
     soname = "./build/command.so"
