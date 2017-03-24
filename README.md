@@ -16,12 +16,6 @@ Note that the Firmware uses a VHDL hard coded TCP server IP Core COM-5402SOFT.  
 
 ## Notes
 
-LICENSE
-----
-
-BSD
-
-
 # discard:
 Hardware/FT_board_out
 Hardware/FT_board_out/FT_board_out.pdf
@@ -103,3 +97,4 @@ Software/util/build/lib.freebsd-11.0-STABLE-amd64-2.7
 Software/util/build/lib.freebsd-11.0-STABLE-amd64-2.7/command.so
 Software/util/build/temp.freebsd-11.0-STABLE-amd64-2.7
 Software/util/build/temp.freebsd-11.0-STABLE-amd64-2.7/command.o
+
