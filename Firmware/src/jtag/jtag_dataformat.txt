@@ -1,0 +1,102 @@
+Hi Jo,
+
+Here's my explanation of the LV GUI interface.
+
+LV GUI contains arrays of data for JTAG registers in a given sensor. When
+the SEND button is pressed, 3 things happen:
+
+1) the data gets converted into  HEX format that is compatible with the JTAG
+programmer module in Virtex-5 . The conversion is performed using an
+external to LabView library - LV_JTAG_GUI_dll.dll (the output file is
+jtag.dat)
+
+2a) a script jtag_usb.bat (or jtag_dll.bat) is called to send the encoded
+data to the FPGA.
+
+2b) after the data is sent to the FPGA, the jtag_usb.bat script waits for a
+defined amount of time (e.g. 1 second) and then a read back is initiated.
+
+3) data that is read back (jtag_r.dat) is then decoded from the HEX format
+to integer-type arrays and is displayed in the GUI.
+
+
+Details:
+
+The JTAG programmer in the FPGA is composed of three modules:
+
+1)     RAM for reading, which contains data to be sent out to a sensor
+2)     RAM for writing, which stores data read back from a sensor
+3)     A state machine that does the following:
+	a.      Waits in an idle state for a "start" signal. When it arrives, then
+	b.      reads 32 bits from the first RAM block
+	c.      generates an appropriate signal pattern on TCK, TCK, TDI lines
+	d.      stores a 32 bit word into the second block RAM with the information
+		that came back on the TDO line. (TDI and TDO are named according to the
+		sensor inputs/outputs)
+	e.      steps b,c,d are performed in a loop until a word from the first
+		block of RAM contains information that this is the last word of the given
+		sequence. After the last word is sent out (and read back) the state machine
+		goes into the idle state - step a.
+
+
+The word format for data stored in the block of RAM for reading is the
+following:
+
+MSB to LSB:
+
+2 bits = end word
+2 bits = IR/DR -> defines if the data filed in the last 16 bits of the word
+	 needs to go to an instruction register or data register
+	 00 - IR
+	 01 - DR
+	 10 - soft reset
+	 11 - hard reset
+4 bits = number of valid bits in the last 16-bit section
+8 bits = unsused
+16 bits = data for IR or DR.
+
+An example of a programming sequence looks like this:
+
+0x0400000F
+0x1F000201
+0x1F000403
+0x1F000605
+0x1F000807
+0x1F000A09
+0x1F000C0B
+0x1F000E0D
+0x1F00100F
+0x1F001211
+0xDF00FF13
+
+The first word contains 5 bits of information that go to an instruction
+register. (Note that the data length encoded in ascii is actually 4).
+
+Words 2 to 10 go to a data register and all of them contain 16 valid bits
+(data length set to F)
+
+The word 11 is similar to words 2-10 except for the 2 MSB bits, which are
+set to "11" , meaning that this is the last word of the sequence.
+
+The cpp file I sent you last time, LV_JTAG_GUI_dll.cpp, contains only four
+functions that convert an array of settings into a HEX data stream that is
+compatible with the JTAG programmer built into the FPGA code. It is the LV
+GUI that saves the jtag.dat file and calls jtag_usb.bat.
+
+Jtag_usb.bat takes the jtag.dat file, embeds it in additional data that
+configures the FPGA so that the correct words are sent to the JTAG module
+RAM block (and, read back from the other RAM block when required). The
+USB-FPGA data format was defined by Xiangming and I do not know all of the
+details.
+
+I'm hoping that this brief explanation is sufficiently clear to follow. But
+if it is not, just let me know and I will try to be more precise. It is
+clear that at this point I lack proper documentation for the JTAG programmer
+and the programming sequence. At some point in the past I had such a
+document, but I have to dig it out and check if it is up to date.
+
+
+Best,
+
+Michal
+
