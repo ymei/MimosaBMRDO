@@ -9,8 +9,8 @@ class Storage():
     # def __init__(self):
     def run(self, lock, lock_data, data, num_now, stop):
         # -- MAPS map for display
-        os.system("rm -rf /ssdone/data.txt")
-        f_write = open('/ssdone/data.txt','wb+')
+        os.system("rm -f /ssdone/MimosaBMData/data.txt")
+        f_write = open('/ssdone/MimosaBMData/data.txt','wb+')
 
         # with lock :
         #     readnum = num_now.value

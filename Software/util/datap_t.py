@@ -48,7 +48,7 @@ class Dataprocess():
                 continue
             data_tmp = np.ctypeslib.as_array(data[(num+124)%128].get_obj())
             addr_data,flag = data_tmp.__array_interface__['data']
-            data_calculate(addr_data,addr_mapsbyte,addr_mapsbyte_temp,muskmap_addr,fcounter,5000)
+            data_calculate(addr_data,addr_mapsbyte,addr_mapsbyte_temp,muskmap_addr,fcounter,1000)
             num_pre = num
             # fcounter = 0
             # for w in data_tmp :

@@ -991,8 +991,8 @@ BEGIN
    END IF;
  END PROCESS;
 
- din_fifo <= (i2c_data3(9 downto 0) & i2c_data4(1 downto 0) & std_logic_vector(frame_counter(19 downto 0)))      when IsCounter_L = '1' else
-             (sign_tag & i2c_data0(9 downto 0) & i2c_data1(9 downto 0) & i2c_data2(9 downto 0))                  when IsCounter_H = '1' else
+ din_fifo <= (sign_tag & i2c_data3(9 downto 0) & std_logic_vector(frame_counter(19 downto 0))) when IsCounter_L = '1' else
+             (i2c_data0(15 downto 6) & i2c_data1(15 downto 6) & i2c_data2(13 downto 2))        when IsCounter_H = '1' else
              sSensorParMod(7 downto 0)&sSensorParMod(15 downto 8)&sSensorParMod(23 downto 16)&sSensorParMod(31 downto 24);
   -- fifo instance
   fifo32to32_inst : fifo32to32
@@ -1007,7 +1007,7 @@ BEGIN
       full   => fifo_full_check,
       empty  => OPEN,
       prog_empty => user_data_fifo_empty
-      );
+    );
 
 -------------------------------------------------------------------------------
 -- ila block for debug

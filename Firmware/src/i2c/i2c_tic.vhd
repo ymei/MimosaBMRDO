@@ -60,7 +60,7 @@ END i2c_tic;
 
 ARCHITECTURE arch OF i2c_tic IS
 
-  SIGNAL sTicCnt       : std_logic_vector(19 DOWNTO 0);
+  SIGNAL sTicCnt        : std_logic_vector(23 DOWNTO 0);
   SIGNAL signA          : std_logic;
   SIGNAL signB          : std_logic;
 
@@ -83,10 +83,10 @@ BEGIN
       ELSIF rising_edge(CLK) THEN
         IF COMMAND5(34) = '1' THEN
             signA <= '1';
-        ELSIF sTicCnt = x"a0000" and signA = '1' THEN
+        ELSIF sTicCnt = x"a00000" and signA = '1' THEN
             signA <= '0';
             signB <= '1';
-        ELSIF sTicCnt = x"b0000" and signB = '1' THEN
+        ELSIF sTicCnt = x"b00000" and signB = '1' THEN
             signB <= '0';
         END IF;
       END IF;
@@ -112,7 +112,7 @@ BEGIN
       -- default
       START    <= '0';
 
-      IF sTicCnt = x"00000" and COMMAND0(34) = '0' THEN
+      IF sTicCnt = x"000000" and COMMAND0(34) = '0' THEN
         START    <= '1';
         MODE     <= COMMAND0(33 downto 32);
         SL_WR    <= COMMAND0(31);
@@ -120,9 +120,9 @@ BEGIN
         WR_ADDR  <= COMMAND0(23 downto 16);
         WR_DATA0 <= COMMAND0(15 downto 8);
         WR_DATA1 <= COMMAND0(7  downto 0);
-      ELSIF sTicCnt = x"10000" and COMMAND0(34) = '0' THEN
+      ELSIF sTicCnt = x"100000" and COMMAND0(34) = '0' THEN
         DATA0    <= RD_DATA0 & RD_DATA1;
-      ELSIF sTicCnt = x"20000" and COMMAND1(34) = '0' THEN
+      ELSIF sTicCnt = x"200000" and COMMAND1(34) = '0' THEN
         START    <= '1';
         MODE     <= COMMAND1(33 downto 32);
         SL_WR    <= COMMAND1(31);
@@ -130,9 +130,9 @@ BEGIN
         WR_ADDR  <= COMMAND1(23 downto 16);
         WR_DATA0 <= COMMAND1(15 downto 8);
         WR_DATA1 <= COMMAND1(7  downto 0);
-      ELSIF sTicCnt = x"30000" and COMMAND1(34) = '0' THEN
+      ELSIF sTicCnt = x"300000" and COMMAND1(34) = '0' THEN
         DATA1    <= RD_DATA0 & RD_DATA1;
-      ELSIF sTicCnt = x"40000" and COMMAND2(34) = '0' THEN
+      ELSIF sTicCnt = x"400000" and COMMAND2(34) = '0' THEN
         START    <= '1';
         MODE     <= COMMAND2(33 downto 32);
         SL_WR    <= COMMAND2(31);
@@ -140,9 +140,9 @@ BEGIN
         WR_ADDR  <= COMMAND2(23 downto 16);
         WR_DATA0 <= COMMAND2(15 downto 8);
         WR_DATA1 <= COMMAND2(7  downto 0);
-      ELSIF sTicCnt = x"50000" and COMMAND2(34) = '0' THEN
+      ELSIF sTicCnt = x"500000" and COMMAND2(34) = '0' THEN
         DATA2    <= RD_DATA0 & RD_DATA1;
-      ELSIF sTicCnt = x"60000" and COMMAND3(34) = '0' THEN
+      ELSIF sTicCnt = x"600000" and COMMAND3(34) = '0' THEN
         START    <= '1';
         MODE     <= COMMAND3(33 downto 32);
         SL_WR    <= COMMAND3(31);
@@ -150,9 +150,9 @@ BEGIN
         WR_ADDR  <= COMMAND3(23 downto 16);
         WR_DATA0 <= COMMAND3(15 downto 8);
         WR_DATA1 <= COMMAND3(7  downto 0);
-      ELSIF sTicCnt = x"70000" and COMMAND3(34) = '0' THEN
+      ELSIF sTicCnt = x"700000" and COMMAND3(34) = '0' THEN
         DATA3    <= RD_DATA0 & RD_DATA1;
-      ELSIF sTicCnt = x"80000" and COMMAND4(34) = '0' THEN
+      ELSIF sTicCnt = x"800000" and COMMAND4(34) = '0' THEN
         START    <= '1';
         MODE     <= COMMAND4(33 downto 32);
         SL_WR    <= COMMAND4(31);
@@ -160,10 +160,10 @@ BEGIN
         WR_ADDR  <= COMMAND4(23 downto 16);
         WR_DATA0 <= COMMAND4(15 downto 8);
         WR_DATA1 <= COMMAND4(7  downto 0);
-      ELSIF sTicCnt = x"90000" and COMMAND4(34) = '0' THEN
+      ELSIF sTicCnt = x"900000" and COMMAND4(34) = '0' THEN
         DATA4    <= RD_DATA0 & RD_DATA1;
 --      ELSIF sTicCnt = x"a0000" and COMMAND5(34) = '0' THEN
-      ELSIF sTicCnt = x"a0000" and signA = '1' THEN  
+      ELSIF sTicCnt = x"a00000" and signA = '1' THEN
         START    <= '1';
         MODE     <= COMMAND5(33 downto 32);
         SL_WR    <= COMMAND5(31);
@@ -172,7 +172,7 @@ BEGIN
         WR_DATA0 <= COMMAND5(15 downto 8);
         WR_DATA1 <= COMMAND5(7  downto 0);
 --      ELSIF sTicCnt = x"b0000" and COMMAND5(34) = '0' THEN
-      ELSIF sTicCnt = x"b0000" and signB = '1' THEN
+      ELSIF sTicCnt = x"b00000" and signB = '1' THEN
         DATA5    <= RD_DATA0 & RD_DATA1;
       ELSE
         START    <= '0';
@@ -180,6 +180,5 @@ BEGIN
 
     END IF;
   END PROCESS;
-
 
 END arch;

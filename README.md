@@ -13,6 +13,16 @@ This repo contains readout board design, firmware (HDL for FPGA), and communicat
 Note that the Firmware uses a VHDL hard coded TCP server IP Core COM-5402SOFT.  Due to licensing issues it is not included.  It can be obtained at http://comblock.com/com5402soft.html.
 
 ## Usage
+Number of frames to integrate for online display is set in ```datap_t.py```
+
+## Data format
+Each frame runs exactly 29696 clock cycles.  Clock runs at 160MHz, making every frame run for 185.6us.
+Use ```hexdump -e '4/1 "%02x" "\n"' /ssdone/MimosaBMData/data.txt``` to view:
+```
+aaaaaaaa <- header
+cfc00001 <- (31,30) start/stop flag; (21,20) latchup status (over current), (vmim,vchip); (19-0) frame counter, +1 per frame.
+21885811 <- (31-22) temperature; (21-12) temperature; (11-0) ADC for V/I monitoring (11,10) marks channel number.
+```
 
 ## Notes
 

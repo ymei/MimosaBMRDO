@@ -68,6 +68,11 @@ i2c_pcf8574_reset_latchup(s,cmd)
 i2c_pcf8574_read_latchup(s,cmd)
 time.sleep(1)
 
+i2c_ad7993_initial(s,cmd)
+i2c_ad7418_initial(s,cmd)
+i2c_prep_cont_read(s,cmd)
+time.sleep(1)
+
 # write to JTAG
 ret = cmd.cmd_write_register(3,0x4)
 s.sendall(ret)
