@@ -29,16 +29,15 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:vc_board
-LIBS:vc_board-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr USLedger 17000 11000
 encoding utf-8
 Sheet 1 1
-Title "Vacuum chamber Board"
+Title "Mimosa Beam Monitor Vacuum chamber Board"
 Date ""
 Rev ""
-Comp ""
+Comp "LBNL"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -75,28 +74,6 @@ F 1 "SN65LVDT14" H 6650 1000 60  0000 C CNN
 F 2 "Housings_SSOP:TSSOP-20_4.4x6.5mm_Pitch0.65mm" H 6650 1600 60  0001 C CNN
 F 3 "" H 6650 1600 60  0000 C CNN
 	1    6650 1600
-	1    0    0    -1  
-$EndComp
-$Comp
-L LM1117-3.3 U5
-U 1 1 57DB25B8
-P 10050 8300
-F 0 "U5" H 10150 8050 50  0000 C CNN
-F 1 "LM1117-3.3" H 10050 8550 50  0000 C CNN
-F 2 "TO_SOT_Packages_SMD:SOT-223" H 10050 8300 50  0001 C CNN
-F 3 "" H 10050 8300 50  0000 C CNN
-	1    10050 8300
-	1    0    0    -1  
-$EndComp
-$Comp
-L LM1117-3.3 U6
-U 1 1 57DB25D9
-P 10050 9250
-F 0 "U6" H 10150 9000 50  0000 C CNN
-F 1 "LM1117-3.3" H 10050 9500 50  0000 C CNN
-F 2 "TO_SOT_Packages_SMD:SOT-223" H 10050 9250 50  0001 C CNN
-F 3 "" H 10050 9250 50  0000 C CNN
-	1    10050 9250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -359,9 +336,9 @@ Wire Wire Line
 Wire Wire Line
 	3750 4100 4200 4100
 Wire Wire Line
-	3750 4300 4200 4300
+	3750 4300 4300 4300
 Wire Wire Line
-	3750 4400 4200 4400
+	3750 4400 4600 4400
 Text Label 4200 3500 2    50   ~ 0
 start_P
 Text Label 4200 3600 2    50   ~ 0
@@ -403,9 +380,9 @@ Wire Wire Line
 Wire Wire Line
 	7500 4150 8000 4150
 Wire Wire Line
-	7500 4350 8000 4350
+	7500 4350 8100 4350
 Wire Wire Line
-	7500 4450 8000 4450
+	7500 4450 8400 4450
 Wire Wire Line
 	7500 4650 8000 4650
 Wire Wire Line
@@ -1695,4 +1672,64 @@ Wire Wire Line
 Wire Wire Line
 	13600 8000 13600 7900
 Connection ~ 13600 7900
+$Comp
+L LM1117-3.3 U5
+U 1 1 58F01E5B
+P 10050 8300
+F 0 "U5" H 10050 8687 60  0000 C CNN
+F 1 "1117" H 10050 8581 60  0000 C CNN
+F 2 "" H 10050 8300 60  0001 C CNN
+F 3 "" H 10050 8300 60  0001 C CNN
+	1    10050 8300
+	1    0    0    -1  
+$EndComp
+$Comp
+L LM1117-3.3 U6
+U 1 1 58F01F39
+P 10050 9250
+F 0 "U6" H 10050 9637 60  0000 C CNN
+F 1 "1117" H 10050 9531 60  0000 C CNN
+F 2 "" H 10050 9250 60  0001 C CNN
+F 3 "" H 10050 9250 60  0001 C CNN
+	1    10050 9250
+	1    0    0    -1  
+$EndComp
+NoConn ~ 15300 4050
+NoConn ~ 14800 4050
+NoConn ~ 15300 1700
+NoConn ~ 14800 1700
+$Comp
+L R R9
+U 1 1 58F0B7C4
+P 4450 4300
+F 0 "R9" V 4350 4300 50  0000 C CNN
+F 1 "100" V 4450 4300 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" V 4380 4300 50  0001 C CNN
+F 3 "" H 4450 4300 50  0001 C CNN
+	1    4450 4300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4600 4400 4600 4300
+$Comp
+L R R10
+U 1 1 58F0D181
+P 8250 4350
+F 0 "R10" V 8150 4350 50  0000 C CNN
+F 1 "100" V 8250 4350 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" V 8180 4350 50  0001 C CNN
+F 3 "" H 8250 4350 50  0001 C CNN
+	1    8250 4350
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8400 4450 8400 4350
+Text Label 12900 3250 2    60   ~ 0
+GND
+Wire Wire Line
+	12900 3250 12450 3250
+NoConn ~ 12450 3450
+NoConn ~ 11250 3350
+NoConn ~ 11150 1650
+NoConn ~ 11150 1850
 $EndSCHEMATC

@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name MIMOSA)(type KiCad)(uri ${KIPRJMOD}/MIMOSA.pretty)(options "")(descr "MIMOSA footprints"))
+)
