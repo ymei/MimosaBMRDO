@@ -29,15 +29,16 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:vc_board
+LIBS:vc_board-cache
 EELAYER 26 0
 EELAYER END
 $Descr USLedger 17000 11000
 encoding utf-8
 Sheet 1 1
-Title "Mimosa Beam Monitor Vacuum chamber Board"
+Title "Vacuum chamber Board"
 Date ""
 Rev ""
-Comp "LBNL"
+Comp ""
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -1673,7 +1674,7 @@ Wire Wire Line
 	13600 8000 13600 7900
 Connection ~ 13600 7900
 $Comp
-L LM1117-3.3 U5
+L 1117 U5
 U 1 1 58F01E5B
 P 10050 8300
 F 0 "U5" H 10050 8687 60  0000 C CNN
@@ -1684,7 +1685,7 @@ F 3 "" H 10050 8300 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LM1117-3.3 U6
+L 1117 U6
 U 1 1 58F01F39
 P 10050 9250
 F 0 "U6" H 10050 9637 60  0000 C CNN
